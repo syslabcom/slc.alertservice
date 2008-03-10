@@ -1,0 +1,26 @@
+Metadata-Version: 1.0
+Name: slc.alertservice
+Version: 0.1dev
+Summary: Alert subscription tool
+Home-page: http://www.syslab.com
+Author: syslab.com
+Author-email: thomas@syslab.com
+License: GPL
+Description: Introduction
+        ============
+        
+        
+        
+        Changelog
+        =========
+        
+        0.1 - Unreleased
+        ----------------
+        
+        * Initial release
+        
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

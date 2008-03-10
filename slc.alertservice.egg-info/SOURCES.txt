@@ -1,0 +1,17 @@
+README.txt
+setup.cfg
+setup.py
+slc/__init__.py
+slc.alertservice.egg-info/PKG-INFO
+slc.alertservice.egg-info/SOURCES.txt
+slc.alertservice.egg-info/dependency_links.txt
+slc.alertservice.egg-info/entry_points.txt
+slc.alertservice.egg-info/namespace_packages.txt
+slc.alertservice.egg-info/not-zip-safe
+slc.alertservice.egg-info/paster_plugins.txt
+slc.alertservice.egg-info/requires.txt
+slc.alertservice.egg-info/top_level.txt
+slc/alertservice/AlertserviceTool.py
+slc/alertservice/__init__.py
+slc/alertservice/setuphandlers.py
+slc/alertservice/tests.py
