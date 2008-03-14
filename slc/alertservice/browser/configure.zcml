@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="slc.alertservice">
+
+  <browser:page
+      for="*"
+      name="subscribe_form"
+      class=".SubscribeForm.SubscribeForm"
+      permission="zope.Public"
+      allowed_interface=".interfaces.ISubscribeForm"
+      />
+
+</configure>
