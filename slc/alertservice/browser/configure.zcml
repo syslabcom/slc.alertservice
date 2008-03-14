@@ -5,10 +5,18 @@
 
   <browser:page
       for="*"
-      name="subscribe_form"
+      name="subscribe_form_new"
       class=".SubscribeForm.SubscribeForm"
       permission="zope.Public"
       allowed_interface=".interfaces.ISubscribeForm"
       />
+     
+   <browser:page
+    for="*"
+    name="subscribe_helper"
+    class=".SubscribeHelper.SubscribeHelper"
+    permission="zope.Public"
+    allowed_interface=".interfaces.ISubscribeHelper"
+    />
 
 </configure>

@@ -32,6 +32,7 @@
 <div metal:fill-slot="main"
      i18n:domain="elevateIT"
      tal:define="errors options/state/getErrors |nothing;
+                 test view/getTestFunction;
                  alertId string:personalization_alert;
                  userProfile here/portal_alerts/getUserSettings | python:{};
                  userSettings python:userProfile.get(alertId, {}).get('settings', {})">
@@ -81,7 +82,7 @@
              tal:define="error errors/portal_type | nothing;
                          portal_type userSettings/objecttype|python:[];
                          portal_type request/portal_type | portal_type | python:[];
-                         Types_in view/contentTypesDL;">
+                         Types_in view/contentTypesDL;"
              tal:attributes="class python:test(error, 'field error', 'field')">
             <div class="key">
                 <label for="type" i18n:translate="label_type">Type:</label>
@@ -165,7 +166,7 @@
 
         <div class="field"
              tal:define="error errors/email | nothing;
-                         name userSettings/email | nothing;">
+                         name userSettings/email | nothing;"
              tal:attributes="class python:test(error, 'field error', 'field')">
             <div class="key">
                 <label for="email" i18n:translate="label_email">Your email address</label>
@@ -187,12 +188,12 @@
 
         <div class="field"
             tal:define="error errors/oshmail | nothing;
-                        name python:request.get('oshmail', '');">
+                        name python:request.get('oshmail', '');"
             tal:attributes="class python:test(error, 'field error', 'field')">
 
             <input class="noborder"
                    name="oshmail"
-                   type="checkbox" />
+                   type="checkbox" 
                    tal:attributes="checked python:test(name, 'checked', '');" />
 
         <span i18n:translate="description_subscribe_oshmail">I also want to receive OSHmail, the free monthly newsletter (<a href="http://osha.europa.eu/news/oshmail/" target="_blank">learn more...</a>)</span>
