@@ -1,0 +1,237 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:head fill-slot="top_slot"
+tal:define="dummy python:request.set('disable_border',1)" />
+
+<metal:block fill-slot="css_slot">
+<style type="text/css">
+    #subscribe_box {
+    width: 50em;
+    border: 1px solid #aaa;
+    }
+    #subscribe_heading {
+    background-color: #c5cbd8;
+    padding: 5px;
+    }
+    #subscribe_body {
+        padding:5px;
+    }
+    .submitbuttons {
+        text-align:center;
+        margin-top: 20px;
+    }
+    .key { float:left; width: 20em;  clear: both; overflow: hidden; }
+    .value { margin-left: 16em; }
+    .field {clear: both; overflow: hidden; }
+</style>
+</metal:block>
+
+<body>
+
+<div metal:fill-slot="main"
+     i18n:domain="elevateIT"
+     tal:define="errors options/state/getErrors |nothing;
+                 view context/@@subscribe_helper;
+                 alertId string:personalization_alert;
+                 userProfile here/portal_alerts/getUserSettings | python:{};
+                 userSettings python:userProfile.get(alertId, {}).get('settings', {})">
+
+
+    <form action="subscribe_alert"
+          method="post"
+          enctype="multipart/form-data"
+          tal:attributes="action template/getId">
+
+
+<div id="subscribe_box">
+
+    <h2 id="subscribe_heading">
+        <img src="alert_icon.gif" width="17" height="16" />
+        <span i18n:translate="heading_edit_alert" tal:condition="request/s |nothing">Edit an Alert</span>
+        <span i18n:translate="heading_create_alert" tal:condition="not:request/s |nothing">Create an Alert</span>
+    </h2>
+
+    <div id="subscribe_body">
+        <p i18n:translate="description_edit_alert">Please specify your query according to your interests:</p>
+
+    <div class="field">
+       <div class="key">
+            <label for="type" i18n:translate="label_subjects_of_interest">Subjects of interest:</label>
+        </div>
+        <div class="value">
+
+            <select name="Subject:list"
+                    id="Subject"
+                    size="7"
+                    multiple="multiple"
+                    tal:define="contentSubjectsDL view/contentSubjectsDL;"
+                    >
+                <option value="#"
+                        tal:repeat="subject contentSubjectsDL/items"
+                        tal:content="python:subject[1]"
+                        tal:attributes="value python:subject[0]"
+                        i18n:domain="plone-metadata"
+                        i18n:translate=""
+                        >dummy</option>
+            </select>
+         </div>
+     </div>
+
+        <div class="field"
+             tal:define="error errors/portal_type | nothing;
+                         portal_type userSettings/objecttype|python:[];
+                         portal_type request/portal_type | portal_type | python:[];
+                         Types_in view/contentTypesDL;"
+             tal:attributes="class python:test(error, 'field error', 'field')">
+            <div class="key">
+                <label for="type" i18n:translate="label_type">Type:</label>
+            </div>
+            <div class="value">
+
+                <select id="portal_type" name="portal_type" multiple="multiple" size="3"
+                    tal:attributes="size python:len(Types_in)">
+                    <option tal:repeat="sub_val Types_in/items"
+                        tal:attributes="value python:sub_val[0];
+                        selected python:test(sub_val[0] in portal_type, 'selected', '')"
+                        tal:content="structure python:sub_val[1]" i18n:translate="" />
+                </select>
+            </div>
+        </div>
+
+        <div class="field"
+             tal:define="schedulesList python:[('daily', 1), ('weekly', 7), ('monthly', 30)];
+             schedule userSettings/schedule | nothing;
+             schedule schedule|request/schedule|python:30">
+
+            <div class="key">
+
+                <label for="schedule" i18n:translate="label_schedule">Schedule</label>
+                <span class="fieldRequired" title="Required"
+                    i18n:attributes="title"
+                i18n:translate="label_required"></span>
+            </div>
+            <div class="value">
+
+                <select id="schedule"
+                        name="schedule:int"
+                        tabindex=""
+                        tal:attributes="value schedule;
+                                        tabindex tabindex/next;">
+
+                    <tal:types_loop tal:repeat="stype schedulesList">
+                    <option value="SCHEDULETYPE"
+                            i18n:attributes="value"
+                            tal:attributes="value python: stype[1];
+                                            selected python:schedule == stype[1]"
+                            tal:content="python: stype[0]">
+                      SCHEDULE TITLE
+                    </option>
+                    </tal:types_loop>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="field"
+             tal:define="preferredLanguages userSettings/langs | python:['en'];
+                         preferredLanguages preferredLanguages|request/preferredLanguages|python:['en']">
+            <div class="key">
+            <label for="preferredLanguages" i18n:translate="label_additional_languages">Additional Languages</label>
+
+                <div class="formHelp" i18n:translate="select_multiple_help">
+                In order to choose more than one item from the lists, press the key "control" on your keyboard, and select the item with your mouse.
+                </div>
+            </div>
+            <div class="value">
+                <p i18n:translate="description_alertservice_languageselector">Alerts are sent in English. If the content is translated you can receive it in additional languages.
+                </p>
+
+            <select name="preferredLanguages:list"
+                    id="preferredLanguages"
+                    multiple="multiple"
+                    size="5"
+                    tal:attributes="tabindex tabindex/next;">
+
+                    <metal:block tal:repeat="ln here/portal_languages/listSupportedLanguages">
+                        <option tal:attributes="value python:ln[0];
+                                                "
+                                tal:condition="python:ln[0]!='en'"
+                                tal:content="python:ln[1]">
+                            language
+                        </option>
+                    </metal:block>
+                </select>
+            </div>
+        </div>
+
+        <div class="field"
+             tal:define="error errors/email | nothing;
+                         name userSettings/email | nothing;"
+             tal:attributes="class python:test(error, 'field error', 'field')">
+            <div class="key">
+                <label for="email" i18n:translate="label_email">Your email address</label>
+                <span class="fieldRequired" title="Required"
+                        i18n:attributes="title" i18n:domain="plone"
+                        i18n:translate="label_required">(Required)</span>
+                <div i18n:translate="" tal:content="error">Validation error output</div>
+            </div>
+            <div class="value">
+                <input type="text"
+                        name="email"
+                        id="email"
+                        size="25"
+                        tal:attributes="value name;
+                        tabindex tabindex/next;
+                        " />
+            </div>
+        </div>
+
+        <div class="field"
+            tal:define="error errors/oshmail | nothing;
+                        name python:request.get('oshmail', '');"
+            tal:attributes="class python:test(error, 'field error', 'field')">
+
+            <input class="noborder"
+                   name="oshmail"
+                   type="checkbox"
+                   tal:attributes="checked python:test(name, 'checked', '');" />
+
+        <span i18n:translate="description_subscribe_oshmail">I also want to receive OSHmail, the free monthly newsletter (<a href="http://osha.europa.eu/news/oshmail/" target="_blank">learn more...</a>)</span>
+
+        </div>
+
+        <div class="formControls submitbuttons">
+            <input class="context"
+                   tabindex=""
+                   type="submit"
+                   value="Create alert"
+                   name="form.button.Save"
+                   i18n:attributes="value"
+                   tal:attributes="tabindex tabindex/next;"
+                   />
+        </div>
+
+        <input type="hidden" name="form.submitted" value="1" />
+
+    </div>
+
+</div>
+
+    </form>
+
+</div>
+
+
+
+</body>
+<td id="portal-column-two" metal:fill-slot="column_two_slot"></td>
+<td tal:on-error="nothing" id="portal-column-three" width="50%" metal:fill-slot="column_three_slot" tal:condition="python:slots_mapping.get('inner_left') and not dbo"></td>
+<td tal:on-error="nothing" id="portal-column-four" width="50%" metal:fill-slot="column_four_slot" tal:condition="python:slots_mapping.get('inner_right') and not dbo"></td>
+
+</html>
+
+
+ 

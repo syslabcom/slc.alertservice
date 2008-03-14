@@ -1,0 +1,8 @@
+[validators]
+validators =
+
+[actions]
+action.failure=traverse_to:string:subscribe_form
+action.emailsent=traverse_to:string:subscribe_feedback
+action.emailfailure=traverse_to:string:subscribe_form
+action.success=traverse_to:string:subscribe_feedback
