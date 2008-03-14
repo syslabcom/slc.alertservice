@@ -13,6 +13,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.utils import DisplayList
 from slc.alertservice.interfaces import ITypesGetter
 
+from ZTUtils import b2a, a2b
+
 class SubscribeHelper(BrowserView):
     implements(ISubscribeHelper)
 
@@ -33,3 +35,22 @@ class SubscribeHelper(BrowserView):
         """ return valid types to select """
         util = getUtility(ITypesGetter, name="alertservice.typesgetter")
         return util(self)
+
+
+
+    def encodeEmail(self, email):
+        if email is None:
+            return None
+        email = email.strip()
+        code = b2a(email)
+        while (code[0]=='_' or code[-1]=='_'):
+            email = email+" "
+            code = b2a(email)
+        return code
+    
+    def decodeEmail(self, code):
+        if code is None:
+            return None
+        email = a2b(code)
+        email = email.strip()
+        return email

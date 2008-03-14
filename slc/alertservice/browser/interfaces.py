@@ -12,3 +12,9 @@ class ISubscribeHelper(Interface):
 
     def contentTypesDL():
         """ get possible content types as DisplayList """
+
+    def encodeEmail(email):
+        """ binary encode email address"""
+
+    def decodeEmail(email):
+        """ decode encoded email string """

@@ -9,7 +9,6 @@
 ##title=Subscribe to alerts by user email address
 ##
 from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
-from slc.alertservice.utils import encodeEmail, decodeEmail
 request = context.REQUEST
 error = ''
 from osha.policy.utils import logit
@@ -50,7 +49,7 @@ settings['langs'] = langs = request.get('preferredLanguages', ['en'])
 
 logit('objecttype', objecttype)
 
-b2a_email = encodeEmail(email)
+b2a_email = helper.encodeEmail(email)
 
 
 OType = list()
@@ -59,9 +58,9 @@ if objecttype =='all':
     logit('OType:', OType)
 else:
     if not getattr(objecttype, 'append', None):
-        objecttype = [objecttype]
-    for ot in objecttype:
-        OType += TYPES_MAP[ot]
+        OType = [objecttype]
+    else:
+        OType = objecttype
 
 if 'en' not in langs :
     langs.append('en')
@@ -97,15 +96,22 @@ searchmap['path'] = {'query': searchmap['path']}
 
 searchmap['advanced_query'] = query
 
+
+
 smap = alerttool.generateSearchMap( notification_period=schedule
                                          , limit = limit
                                          , searchmap = searchmap
                                          )
 
+
+
 if alerttool.existsNotificationProfile(b2a_email):
     np = alerttool.getNotificationProfile(b2a_email)
 else:
     np = alerttool.createNotificationProfile(b2a_email)
+    
+logit([alerttool.existsNotificationProfile(b2a_email)])
+logit('\nnp:\n', np)
 
 # see if an alert exists by that id
 alert = np.getNotification(PERSONAL_ALERT_ID)

@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<metal:block fill-slot="head_slot" tal:define="dummy python:request.set('disable_border',1)" />
+<body>
+<div metal:fill-slot="main">
+
+
+    <span tal:replace="options/msg | nothing"/>
+
+<br tal:repeat="dummy python: range(20)"/>
+</div>
+</body>
+<td id="portal-column-two" metal:fill-slot="column_two_slot"></td>
+<td tal:on-error="nothing" id="portal-column-three" width="50%" metal:fill-slot="column_three_slot" tal:condition="python:slots_mapping.get('inner_left') and not dbo"></td>
+<td tal:on-error="nothing" id="portal-column-four" width="50%" metal:fill-slot="column_four_slot" tal:condition="python:slots_mapping.get('inner_right') and not dbo"></td>
+</html>
+
+

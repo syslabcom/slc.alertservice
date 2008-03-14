@@ -1,0 +1,15 @@
+EU-OSHA received a request to start sending alerts to <span tal:replace="options/email | string:[no email]"/>.
+
+Verify this EU-OSHA alert request:
+<span tal:replace="structure options/verify_url | string: empty url"/>
+
+Cancel this EU-OSHA alert request:
+<span tal:replace="structure options/remove_url | string: empty url"/>
+
+If you cannot click on the link, you can cut and paste it into your browser's address bar.
+
+If you did not initiate this request or believe it was sent in error you can safely ignore this message.
+
+Thanks,
+The EU-OSHA Alerts Team
+<span tal:replace="options/origin_host"/>

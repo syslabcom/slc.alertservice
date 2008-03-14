@@ -57,7 +57,8 @@ tal:define="dummy python:request.set('disable_border',1)" />
     <div id="subscribe_body">
         <p i18n:translate="description_edit_alert">Please specify your query according to your interests:</p>
 
-    <div class="field">
+    <div class="field"
+        tal:define="Subject request/Subject|python:[]">
        <div class="key">
             <label for="type" i18n:translate="label_subjects_of_interest">Subjects of interest:</label>
         </div>
@@ -72,7 +73,8 @@ tal:define="dummy python:request.set('disable_border',1)" />
                 <option value="#"
                         tal:repeat="subject contentSubjectsDL/items"
                         tal:content="python:subject[1]"
-                        tal:attributes="value python:subject[0]"
+                        tal:attributes="value python:subject[0];
+                        selected python:test(subject[0] in Subject, 'selected', '')"
                         i18n:domain="plone-metadata"
                         i18n:translate=""
                         >dummy</option>
