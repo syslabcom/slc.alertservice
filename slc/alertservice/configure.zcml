@@ -5,6 +5,9 @@
     xmlns:cmf="http://namespaces.zope.org/cmf"
     i18n_domain="slc.alertservice">
 
+
+    <include package=".browser" />
+
     <five:registerPackage package="." initialize=".initialize" />
 
   <genericsetup:registerProfile
@@ -16,5 +19,14 @@
       />
       
      <cmf:registerDirectory name="alertservice"/>
+     
+     <!-- Register subscription utilities -->
+     <utility factory=".subscription.SubjectGetter" 
+              name="alertservice.subjectgetter"
+            />
+     <utility factory=".subscription.TypesGetter"
+            provides="slc.alertservice.interfaces.ITypesGetter"
+            name="alertservice.typesgetter"
+             />
 
 </configure>

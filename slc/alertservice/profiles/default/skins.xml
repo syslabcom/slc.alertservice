@@ -8,7 +8,7 @@
 
  <object name="alertservice"
          meta_type="Filesystem Directory View"
-         directory="syslabcom.alertservice:skins/alertservice"/>
+         directory="slc.alertservice:skins/alertservice"/>
  
  <skin-path name="*">
   <layer insert-after="custom" 
