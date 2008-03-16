@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:block fill-slot="head_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+<body>
+
+<div metal:fill-slot="main"
+     i18n:domain="slc.alertservice"
+     tal:define="errors options/state/getErrors |nothing;
+                 alertId string:personalization_alert;
+                 userProfile request/settings | python:{};
+                 button options/state/button">
+
+
+
+<div tal:condition="python:button == 'Save'">
+    <h1 tal:content="request/portal_status_message"></h1>
+    <p i18n:translate="description_subscribe_alert_next_steps">
+    <strong>You have suscribed to an alert.</strong>
+    </p>
+    <ul>
+        <li i18n:translate="description_subscribe_alert_next_steps1">You will soon receive a confirmation message with a link to verify your request or to cancel it.</li>
+        <li i18n:translate="description_subscribe_alert_next_steps2">If you don't verify your alert, you will not receive further emails.</li>
+        <li i18n:translate="description_subscribe_alert_next_steps3">Notifications are sent out usually during the night and weekends, so you will probably not see your first notification before tomorrow.</li>
+        <li i18n:translate="description_subscribe_alert_next_steps4">You can always cancel your alert by clicking the Remove link at the bottom of each email.</li>
+    </ul>
+
+    <p><strong><span i18n:translate="description_subscribe_alert_next_steps5">Thank you for using the alert service!</span></strong></p>
+</div>
+
+<div tal:condition="python:button == 'Retrieve'">
+    <h1 tal:content="request/portal_status_message"></h1>
+    <p i18n:translate="description_subscribe_alert_next_steps5">
+    <strong>You have requested a status email on your alerts.</strong>
+    </p>
+    <ul>
+        <li i18n:translate="description_subscribe_alert_next_steps6">You will soon receive a confirmation message with links to manage your alerts.</li>
+        <li i18n:translate="description_subscribe_alert_next_steps4">You can always cancel your alert by clicking the Remove link at the bottom of each email.</li>
+    </ul>
+
+    <p><strong><span i18n:translate="description_subscribe_alert_next_steps5">Thank you for using the alert service!</span></strong></p>
+</div>
+
+</div>
+
+</body>
+<td id="portal-column-two" metal:fill-slot="column_two_slot"></td>
+<td tal:on-error="nothing" id="portal-column-three" width="50%" metal:fill-slot="column_three_slot" tal:condition="python:slots_mapping.get('inner_left') and not dbo"></td>
+<td tal:on-error="nothing" id="portal-column-four" width="50%" metal:fill-slot="column_four_slot" tal:condition="python:slots_mapping.get('inner_right') and not dbo"></td>
+
+</html>
+
+
