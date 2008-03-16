@@ -18,7 +18,7 @@ def getTriggerkey():
     return triggerkey
 
 
-DO_LOG = True
+DO_LOG = False
 
 def log( *kwargs):
     " log something "
