@@ -13,8 +13,8 @@ class ISubscribeHelper(Interface):
     def contentTypesDL():
         """ get possible content types as DisplayList """
 
-    def encodeEmail(email):
-        """ binary encode email address"""
+    def getPersonalAlertId():
+        """ returns id under which the notification alert gets saved """
 
-    def decodeEmail(email):
-        """ decode encoded email string """
+    def getUserSettings():
+        """ returns exisitng settings for a given user """

@@ -22,6 +22,7 @@
      
      <!-- Register subscription utilities -->
      <utility factory=".subscription.SubjectGetter" 
+              provides="slc.alertservice.interfaces.ISubjectGetter"
               name="alertservice.subjectgetter"
             />
      <utility factory=".subscription.TypesGetter"

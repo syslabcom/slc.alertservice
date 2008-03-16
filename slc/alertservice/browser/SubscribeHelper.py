@@ -11,6 +11,7 @@ from zope.component import getUtility
 from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.utils import DisplayList
+from slc.alertservice.interfaces import ISubjectGetter
 from slc.alertservice.interfaces import ITypesGetter
 
 from ZTUtils import b2a, a2b
@@ -22,13 +23,15 @@ class SubscribeHelper(BrowserView):
 
     security.declarePublic('contentSubjectsDL')
     def contentSubjectsDL(self):
-        """ see interface"""
-        pvt = getToolByName(self, 'portal_vocabularies', '')
-        VOCAB = getattr(pvt, 'Subcategory', '')
-        vd = VOCAB.getVocabularyDict(self)
-        toplevel = [(k, vd[k][0]) for k in vd.keys()]
-        DL = DisplayList(toplevel)
-        return DL
+        """ return subjects for selection """
+        util = getUtility(ISubjectGetter, name="alertservice.subjectgetter")
+        return util(self)
+#        pvt = getToolByName(self, 'portal_vocabularies', '')
+#        VOCAB = getattr(pvt, 'Subcategory', '')
+#        vd = VOCAB.getVocabularyDict(self)
+#        toplevel = [(k, vd[k][0]) for k in vd.keys()]
+#        DL = DisplayList(toplevel)
+#        return DL
 
     security.declarePublic('contentTypesDL')
     def contentTypesDL(self):
@@ -37,20 +40,15 @@ class SubscribeHelper(BrowserView):
         return util(self)
 
 
+    def getPersonalAlertId(self):
+        """ returns id under which the notification alert gets saved """
+        # simple hardcoded string
+        return "personalization_alert"
 
-    def encodeEmail(self, email):
-        if email is None:
-            return None
-        email = email.strip()
-        code = b2a(email)
-        while (code[0]=='_' or code[-1]=='_'):
-            email = email+" "
-            code = b2a(email)
-        return code
-    
-    def decodeEmail(self, code):
-        if code is None:
-            return None
-        email = a2b(code)
-        email = email.strip()
-        return email
+
+    def getUserSettings(self):
+        """ returns exisitng settings for a given user """
+        alert_tool = getToolByName(self, 'portal_alertservice')
+        profile = alert_tool.getUserProfile()
+        settings = profile.get(self.getPersonalAlertId(), {}).get('settings', {})
+        return settings

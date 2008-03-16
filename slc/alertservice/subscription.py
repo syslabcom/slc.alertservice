@@ -13,8 +13,14 @@ from slc.alertservice.interfaces import ITypesGetter
 class SubjectGetter(object):
     implements(ISubjectGetter)
 
-    def __call__(self):
-        pass
+    def __call__(self, context):
+        pc = getToolByName(context, 'portal_catalog')
+        subjects = pc.uniqueValuesFor('Subject')
+        DL = DisplayList()
+        for subj in subjects:
+            DL.add(subj, subj)
+
+        return DL
 
 
 class TypesGetter(object):

@@ -1,0 +1,175 @@
+<HTML i18n:domain="elevateIT">
+<HEAD>
+    <meta http-equiv="Content-Type"
+          content="text/html;charset=utf-8" />
+<TITLE i18n:translate="alertservice_notification_service">Notification Service</TITLE>
+
+<style TYPE="text/css">
+<!--
+
+body {
+    font: 100% Verdana, Helvetica, Arial, sans-serif;
+    background: White;
+    color: #000000;
+    margin: 10px;
+    width: 700px;
+    }
+
+li.doc {
+    margin-left: 40px;
+    margin-right: 40px;
+
+}
+
+hr.doc {
+    margin-left: 40px;
+    margin-right: 40px;
+
+}
+
+table.td {
+    font: 100% Verdana, Helvetica, Arial, sans-serif;
+    background: White;
+    color: #000000;
+    margin: 0px;
+    padding: 10px 0px 10px 0px;
+    }
+
+.small {
+    font-size:80%;
+
+}
+
+.tiny {
+    font-size:80%;
+}
+
+.info {
+    color: #666666;
+    font-style: italic;
+}
+
+
+
+a, a:visited, a:link {
+    text-decoration: none;
+    font-weight:normal;
+    color: #366DE0;
+    background-color: transparent;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    font-weight:normal;
+    color: #163D8D;
+    background-color: transparent;
+}
+
+-->
+</style>
+
+</HEAD>
+
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000" LINK="#000099" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0"  i18n:domain="slc.alertservice"
+     tal:define="alertperiode python:{1 : 'alert_daily', 7 : 'alert_weekly', 30 : 'alert_monthly'}">
+<A NAME="top"></A>
+
+
+<div align="center">
+<hr SIZE="2"/>
+<H2><a href=""><img valign="bottom" border="0" src="logo.gif"
+    tal:attributes="src string:${options/siteurl}/alert_icon.gif" /></a>&nbsp;Alert Service '<span
+tal:replace="options/notification_id">ID</span>'</H2>
+<hr size="1"/>
+<b class="small"><span i18n:translate="" i18n:domain="elevateIT"><span tal:replace="python:alertperiode[options.get('notification_period','')]"/></span>
+    Ausgabe f&uuml;r <span
+    tal:replace="options/user_name"/> vom <span tal:replace="python:here.toLocalizedTime(options['notification_date'])">13.05.1813</span></b>
+ <hr size="2"/>
+</div>
+
+<div>
+    <div class="small">
+    <p>
+        <b><span i18n:translate="alertservice_information_changed_since">Die folgenden Informationen mit Ihren Kriterien sind neu oder wurden seit dem
+    <span i18n:name="date"><span tal:replace="python:here.toLocalizedTime(options['effective'], long_format=1)"/></span></span> ge&auml;ndert:</b>
+    </p>
+    <p>
+                <span tal:replace="options/numresults"/> <span i18n:translate="alertservice_results_found">Dokument(e) wurden gefunden</span><span tal:omit-tag=""
+                tal:condition="python:options['numresults']>len(options['results'])"><span tal:condition="python:0==1">, <span i18n:translate="alertservice_onlyfirst_shown">es werden nur
+        die ersten <span i18n:name="number"> von insgesamt <span tal:replace="python:len(options['results'])"/></span> angezeigt</span></span></span>.
+
+    </p>
+
+
+
+    <tal:results repeat="result options/results">
+
+            <hr class="doc" size="1"/>
+                    <ul type="disc">
+                    <li class="doc">
+
+                            <span tal:condition="result/Title">
+                                <a tal:attributes="HREF string:${result/getURL}"><b><span tal:replace="result/Title">TITLE</span></b></a></span>
+                            <span tal:condition="not:result/Title">
+                                <a tal:attributes="HREF string:${result/getURL}"><b i18n:translate="">TITLE</b></a></span>
+                            <br/>
+
+                            <span class="info" tal:condition="result/Description">
+                                <span tal:replace="structure result/Description">DESCRIPTION</span>
+                                <br/>
+                            </span>
+                            <br/>
+                <span class="tiny">
+                            URL: <a tal:attributes="href string:${result/getURL}" tal:content="string:${result/getURL}">
+                            <span tal:replace="options/siteurl"/>LINK</a><br/>
+                            <a  tal:attributes="href string:${result/getURL}" i18n:translate="">Mehr ...</a>
+                            </span>
+                    </li>
+                    </ul>
+                <hr class="doc" size="1"/>
+
+    </tal:results>
+    <br/>
+
+
+        <hr size="2" width="100%" align="center"/>
+          <span>
+
+                <div class="small" border="0"  bgcolor="#FFFFFF" width="390"
+                       tal:define="searchmap options/searchmap|python:{};
+                       SearchableText searchmap/SearchableText/query|string:;
+                       keywords searchmap/keywords/query|python:[];
+                       path searchmap/path/query|python:[];
+
+                       ">
+                        <div>
+                <b i18n:translate="alertservice_requested_info">Diese Ausgabe des AlertService umfa&szlig;t Informationen, die den folgenden Kriterien entsprechen</b>:
+            </div>
+            <ul>
+                        <span tal:condition="SearchableText">
+                            <li><span i18n:translate="">Volltext enth&auml;lt</span>: <span tal:replace="SearchableText" /><br/></li>
+                       </span>
+                        <span tal:condition="keywords">
+                            <li><span i18n:translate="">Stichworte</span>: <span tal:replace="keywords" /><br/></li>
+                        </span>
+
+                <span tal:condition="path">
+                     <span i18n:translate="">Es werden nur folgende Pfade ber&uuml;cksichtigt</span>: <br/>
+                            <span tal:replace="structure python:'<br>'.join(path)" />
+                 </span>
+            </ul>
+        
+        <tal:remove condition="options/remove_url | nothing">
+            <a href="" tal:attributes="href options/remove_url">Entfernen</a> Sie diese Benachrichtigung<br>
+            <a href="" tal:attributes="href options/edit_url">Bearbeiten</a> Sie diese Benachrichtigung<br>
+        </tal:remove>
+        </div>
+    </span>
+
+
+
+
+
+</BODY>
+</HTML>

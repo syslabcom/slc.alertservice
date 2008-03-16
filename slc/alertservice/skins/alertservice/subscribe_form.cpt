@@ -35,9 +35,7 @@ tal:define="dummy python:request.set('disable_border',1)" />
      i18n:domain="elevateIT"
      tal:define="errors options/state/getErrors |nothing;
                  view context/@@subscribe_helper;
-                 alertId string:personalization_alert;
-                 userProfile here/portal_alerts/getUserSettings | python:{};
-                 userSettings python:userProfile.get(alertId, {}).get('settings', {})">
+                 userSettings view/getUserSettings | python:{};">
 
 
     <form action="subscribe_alert"
@@ -58,7 +56,7 @@ tal:define="dummy python:request.set('disable_border',1)" />
         <p i18n:translate="description_edit_alert">Please specify your query according to your interests:</p>
 
     <div class="field"
-        tal:define="Subject request/Subject|python:[]">
+        tal:define="Subject userSettings/Subject|request/Subject|python:[]">
        <div class="key">
             <label for="type" i18n:translate="label_subjects_of_interest">Subjects of interest:</label>
         </div>
@@ -84,8 +82,7 @@ tal:define="dummy python:request.set('disable_border',1)" />
 
         <div class="field"
              tal:define="error errors/portal_type | nothing;
-                         portal_type userSettings/objecttype|python:[];
-                         portal_type request/portal_type | portal_type | python:[];
+                         portal_type userSettings/portal_type|request/portal_type|python:[];
                          Types_in view/contentTypesDL;"
              tal:attributes="class python:test(error, 'field error', 'field')">
             <div class="key">
@@ -105,8 +102,7 @@ tal:define="dummy python:request.set('disable_border',1)" />
 
         <div class="field"
              tal:define="schedulesList python:[('daily', 1), ('weekly', 7), ('monthly', 30)];
-             schedule userSettings/schedule | nothing;
-             schedule schedule|request/schedule|python:30">
+             schedule userSettings/schedule|request/schedule|python:30">
 
             <div class="key">
 
@@ -138,8 +134,7 @@ tal:define="dummy python:request.set('disable_border',1)" />
         </div>
 
         <div class="field"
-             tal:define="preferredLanguages userSettings/langs | python:['en'];
-                         preferredLanguages preferredLanguages|request/preferredLanguages|python:['en']">
+             tal:define="preferredLanguages userSettings/preferredLanguages|request/Language|python:['en']">
             <div class="key">
             <label for="preferredLanguages" i18n:translate="label_additional_languages">Additional Languages</label>
 
@@ -151,15 +146,15 @@ tal:define="dummy python:request.set('disable_border',1)" />
                 <p i18n:translate="description_alertservice_languageselector">Alerts are sent in English. If the content is translated you can receive it in additional languages.
                 </p>
 
-            <select name="preferredLanguages:list"
-                    id="preferredLanguages"
+            <select name="Language:list"
+                    id="Language"
                     multiple="multiple"
                     size="5"
                     tal:attributes="tabindex tabindex/next;">
 
                     <metal:block tal:repeat="ln here/portal_languages/listSupportedLanguages">
                         <option tal:attributes="value python:ln[0];
-                                                "
+                                                selected python:test(ln[0] in preferredLanguages, 'selected', '')"
                                 tal:condition="python:ln[0]!='en'"
                                 tal:content="python:ln[1]">
                             language
@@ -191,7 +186,7 @@ tal:define="dummy python:request.set('disable_border',1)" />
             </div>
         </div>
 
-        <div class="field"
+        <!--div class="field"
             tal:define="error errors/oshmail | nothing;
                         name python:request.get('oshmail', '');"
             tal:attributes="class python:test(error, 'field error', 'field')">
@@ -201,9 +196,10 @@ tal:define="dummy python:request.set('disable_border',1)" />
                    type="checkbox"
                    tal:attributes="checked python:test(name, 'checked', '');" />
 
-        <span i18n:translate="description_subscribe_oshmail">I also want to receive OSHmail, the free monthly newsletter (<a href="http://osha.europa.eu/news/oshmail/" target="_blank">learn more...</a>)</span>
+        <span i18n:translate="description_subscribe_oshmail">I also want to receive OSHmail, 
+            the free monthly newsletter (<a href="http://osha.europa.eu/news/oshmail/" target="_blank">learn more...</a>)</span>
 
-        </div>
+        </div-->
 
         <div class="formControls submitbuttons">
             <input class="context"

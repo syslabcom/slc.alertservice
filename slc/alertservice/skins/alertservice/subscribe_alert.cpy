@@ -9,19 +9,20 @@
 ##title=Subscribe to alerts by user email address
 ##
 from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
+from Products.CMFCore.utils import getToolByName
 request = context.REQUEST
 error = ''
 from osha.policy.utils import logit
 from slc.alertservice import AlertMessageFactory as _
 helper = context.restrictedTraverse("@@subscribe_helper")
+from slc.alertservice.utils import encodeEmail
 
-alerttool = context.portal_alertservice
+alerttool = getToolByName(context, 'portal_alertservice')
 now = DateTime()
 ppath = context.portal_url.getPortalPath()
 reg_tool=context.portal_registration
 
-PERSONAL_ALERT_ID = "personalization_alert"
-
+PERSONAL_ALERT_ID = helper.getPersonalAlertId()
 
 # retrieving alert settings
 if request.has_key('form.button.Save'):
@@ -44,27 +45,27 @@ settings['schedule'] = schedule = request.get('schedule', '30')
 settings['limit'] = limit = request.get('limit', '25')
 settings['alert_title'] = alert_title = 'EU-OSHA Web Alert - %s' % ", ".join(subjects)
 settings['email'] = email = request.get('email', '')
-settings['objecttype'] = objecttype = request.get('portal_type', 'all')
-settings['langs'] = langs = request.get('preferredLanguages', ['en'])
+settings['portal_type'] = portal_type = request.get('portal_type', 'all')
+settings['preferredLanguages'] = preferredLanguages = request.get('Language', ['en'])
 
-logit('objecttype', objecttype)
+logit('portal_type', portal_type)
 
-b2a_email = helper.encodeEmail(email)
+b2a_email = encodeEmail(email)
 
 
 OType = list()
-if objecttype =='all':
+if portal_type =='all':
     OType = helper.contentTypesDL().keys()
     logit('OType:', OType)
 else:
-    if not getattr(objecttype, 'append', None):
-        OType = [objecttype]
+    if not getattr(portal_type, 'append', None):
+        OType = [portal_type]
     else:
-        OType = objecttype
+        OType = portal_type
 
-if 'en' not in langs :
-    langs.append('en')
-langs = tuple(langs)
+if 'en' not in preferredLanguages :
+    preferredLanguages.append('en')
+preferredLanguages = tuple(preferredLanguages)
 
 
 searchmap = {}
@@ -73,10 +74,10 @@ searchmap['id'] = PERSONAL_ALERT_ID
 searchmap['title'] = alert_title
 searchmap['active'] = 0
 searchmap['Language'] = []
-searchmap['Subject'] = []
-searchmap['path'] = []
-searchmap['topics'] = []
-searchmap['site_position'] = []
+searchmap['Subject'] = subjects
+#searchmap['path'] = []
+#searchmap['topics'] = []
+#searchmap['site_position'] = []
 
 
 # manually create the advanced query
@@ -85,14 +86,14 @@ if OType:
     query = query &  In('portal_type', OType)
     searchmap['portal_type'] = OType
 
-if langs:
-    query = query & In('AvailableLanguages', langs)
-    searchmap['AvailableLanguages'] = {'query': langs}
+if preferredLanguages:
+    query = query & In('Language', preferredLanguages)
+    searchmap['Language'] = {'query': preferredLanguages}
 
 
-query = query
+#query = query
 
-searchmap['path'] = {'query': searchmap['path']}
+#searchmap['path'] = {'query': searchmap['path']}
 
 searchmap['advanced_query'] = query
 

@@ -4,8 +4,8 @@ class ISubjectGetter(Interface):
     """A utility capable of providing possible subjects for an alert
     """
     
-    def __call__():
-        """Return list of subjects
+    def __call__(context):
+        """Return DisplayList of subjects
         """
 
 
@@ -13,6 +13,6 @@ class ITypesGetter(Interface):
     """A utility capable of providing possible types for an alert
     """
     
-    def __call__():
-        """Return list of types
+    def __call__(context):
+        """Return DisplayList of types
         """
