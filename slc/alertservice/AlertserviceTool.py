@@ -8,8 +8,15 @@ from slc.alertservice.NotificationProfile import NotificationProfile
 from utils import decodeEmail
 from Products.CMFCore.utils import getToolByName
 from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
+from slc.alertservice.config import triggerkey
+from slc.alertservice import AlertMessageFactory as _
 
 from Globals import InitializeClass
+
+
+def getTriggerkey():
+    return triggerkey
+
 
 DO_LOG = True
 
@@ -40,12 +47,6 @@ class AlertserviceTool(PloneBaseTool, Folder):
         " "
         self.id = id
 
-#        # BTreeFolder for alerts
-#        id_alerts = "alerts"
-#        a = BTreeFolder2(id_alerts)
-#        a.title = 'Alerts'
-#        self._setObject(id_alerts, a)
-#        self.id_alerts = id_alerts
 
         # BTreeFolder for notifications
         id_nprofiles = "nprofiles"
@@ -53,28 +54,6 @@ class AlertserviceTool(PloneBaseTool, Folder):
         n.title = 'Notifications'
         self._setObject(id_nprofiles, n)
         self.id_nprofiles = id_nprofiles
-
-        # Adding Catalog support
-        c=ZCatalog('AlertCatalog', 'Alert Catalog', self)
-        self._setObject('AlertCatalog', c)
-        zcat = getattr(self, 'AlertCatalog')
-
-        schema = zcat.schema()
-        indices = [
-          ('id', 'FieldIndex'),
-          ('getMemberUserName', 'FieldIndex'),
-          ('getEventTypes', 'KeywordIndex'),
-          ('getSchedule', 'FieldIndex'),
-          ('getEMail', 'FieldIndex'),
-          ('getObjectID', 'FieldIndex'),
-          ('getObjectURL', 'FieldIndex'),
-          ('getObjectOID', 'FieldIndex')
-          ]
-        for (i, t) in indices:
-          if i not in zcat.indexes():
-              zcat.manage_addIndex(i, t)
-          if i not in schema:
-              zcat.manage_addColumn(i)
 
 
 
@@ -209,11 +188,14 @@ class AlertserviceTool(PloneBaseTool, Folder):
             return "Could not send the confirmation email!"
         return ''
 
-    def verify_alert(self, s, k):
+    def verify_alert(self, s=None, k=None):
         """ If an inactive profile exists with that ID, it gets switched to active """
         np = self.getNotificationProfile(s)
+        if np is None:
+            msg = _(u"No alert was found. Please create a new alert.")
+            return self.alertservice_feedback_view(msg=msg)
         if k != np._getSecretKey():
-            msg = "This url is not valid, no alert found"
+            msg = _(u"This url is not valid, no alert found")
             return self.alertservice_feedback_view(msg=msg)
         N = np._notifications
         changed = 0
@@ -223,22 +205,22 @@ class AlertserviceTool(PloneBaseTool, Folder):
                 changed = 1
         if changed == 1:
             np._notifications = N
-            msg = "Your alert is now activated."
+            msg = _(u"Your alert is now activated.")
         else:
-            msg = "Your alert has already been activated."
+            msg = _(u"Your alert has already been activated.")
         return self.alertservice_feedback_view(msg=msg)
 
-    def remove_alert(self, s, k):
+    def remove_alert(self, s=None, k=None):
         """ if a profile exists with that ID, it gets removed """
         np = self.getNotificationProfile(s)
         if np:
             if k != np._getSecretKey():
-                msg = "This url is not valid, no alert found"
+                msg = _(u"This url is not valid, no alert found")
             else:
                 self.deleteNotificationProfile(s)
-                msg = "Your alert has been removed."
+                msg = _(u"Your alert has been removed.")
         else:
-            msg = "There is no such alert."
+            msg = _(u"There is no such alert.")
 
         return self.alertservice_feedback_view(msg=msg)
 
@@ -266,9 +248,15 @@ class AlertserviceTool(PloneBaseTool, Folder):
     ###############################################################################################
 
     security.declarePublic('triggerGeneralNotification')
-    def triggerGeneralNotification(self, now=0, maxnumber=0, ids=[]):
+    def triggerGeneralNotification(self):
         " triggers the notification of all users which have a notification profile "
-
+        request = self.REQUEST
+        tk = request.get('tk', '')
+        if tk != getTriggerkey():
+            return "Illegal triggerkey supplied"
+        now = request.get('now', 0)
+        maxnumber = request.get('maxnumber', 0)
+        ids = request.get('ids', [])
         log("\n\ntriggerGeneralNotification")
         profile_ids = self.nprofiles.objectIds()
         log("profiles",  profile_ids)
