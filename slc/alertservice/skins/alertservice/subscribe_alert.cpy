@@ -12,7 +12,6 @@ from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
 from Products.CMFCore.utils import getToolByName
 request = context.REQUEST
 error = ''
-from osha.policy.utils import logit
 from slc.alertservice import AlertMessageFactory as _
 helper = context.restrictedTraverse("@@subscribe_helper")
 from slc.alertservice.utils import encodeEmail
@@ -43,12 +42,11 @@ settings = {}
 settings['Subject'] = subjects = request.get('Subject', [])
 settings['schedule'] = schedule = request.get('schedule', '30')
 settings['limit'] = limit = request.get('limit', '25')
-settings['alert_title'] = alert_title = 'EU-OSHA Web Alert - %s' % ", ".join(subjects)
+settings['alert_title'] = alert_title = 'Web Alert - %s' % ", ".join(subjects)
 settings['email'] = email = request.get('email', '')
 settings['portal_type'] = portal_type = request.get('portal_type', 'all')
 settings['preferredLanguages'] = preferredLanguages = request.get('Language', ['en'])
 
-logit('portal_type', portal_type)
 
 b2a_email = encodeEmail(email)
 
@@ -56,7 +54,6 @@ b2a_email = encodeEmail(email)
 OType = list()
 if portal_type =='all':
     OType = helper.contentTypesDL().keys()
-    logit('OType:', OType)
 else:
     if not getattr(portal_type, 'append', None):
         OType = [portal_type]
@@ -110,9 +107,6 @@ if alerttool.existsNotificationProfile(b2a_email):
     np = alerttool.getNotificationProfile(b2a_email)
 else:
     np = alerttool.createNotificationProfile(b2a_email)
-    
-logit([alerttool.existsNotificationProfile(b2a_email)])
-logit('\nnp:\n', np)
 
 # see if an alert exists by that id
 alert = np.getNotification(PERSONAL_ALERT_ID)
@@ -125,9 +119,9 @@ else:
 # If alert is added as inactive successfully, send an email out to the user to confirm
 error += alerttool.sendConfirmationMessage(b2a_email)
 
-# Subscribe to oshmail if user has requested this
-if request.get('oshmail', 0):
-    context.subscribeOSHMail(emailaddress=email)
+## Subscribe to oshmail if user has requested this
+#if request.get('oshmail', 0):
+#    context.subscribeOSHMail(emailaddress=email)
 
 error = error.strip()
 
