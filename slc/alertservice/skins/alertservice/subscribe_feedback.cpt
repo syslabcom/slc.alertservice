@@ -11,8 +11,6 @@
 <div metal:fill-slot="main"
      i18n:domain="slc.alertservice"
      tal:define="errors options/state/getErrors |nothing;
-                 alertId string:personalization_alert;
-                 userProfile request/settings | python:{};
                  button options/state/button">
 
 
