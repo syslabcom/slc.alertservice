@@ -47,7 +47,7 @@ tal:define="dummy python:request.set('disable_border',1)" />
 <div id="subscribe_box">
 
     <h2 id="subscribe_heading">
-        <img src="alert_icon.gif" width="17" height="16" />
+        <img src="alertservice_icon.gif" width="17" height="16" />
         <span i18n:translate="heading_edit_alert" tal:condition="request/s |nothing">Edit an Alert</span>
         <span i18n:translate="heading_create_alert" tal:condition="not:request/s |nothing">Create an Alert</span>
     </h2>
