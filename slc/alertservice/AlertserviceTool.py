@@ -5,7 +5,7 @@ from DateTime import DateTime
 from Products.BTreeFolder2.BTreeFolder2 import manage_addBTreeFolder, BTreeFolder2, BTreeFolder2Base
 from Products.ZCatalog.ZCatalog import ZCatalog
 from slc.alertservice.NotificationProfile import NotificationProfile
-from utils import decodeEmail
+from utils import encodeEmail, decodeEmail
 from Products.CMFCore.utils import getToolByName
 from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
 from slc.alertservice.config import triggerkey
@@ -18,7 +18,7 @@ def getTriggerkey():
     return triggerkey
 
 
-DO_LOG = False
+DO_LOG = True
 
 def log( *kwargs):
     " log something "
@@ -77,6 +77,86 @@ class AlertserviceTool(PloneBaseTool, Folder):
         searchmap['limit'] = limit
 
         return searchmap
+
+
+    def handleSubscription(self, request=None):
+        """ do the necessary steps for creating a subscription """
+        if request is None:
+            request = self.REQUEST
+
+        error = ''
+        helper = self.restrictedTraverse("@@subscribe_helper")
+        PERSONAL_ALERT_ID = helper.getPersonalAlertId()
+
+        settings = dict()
+        settings['Subject'] = subjects = request.get('Subject', [])
+        settings['schedule'] = schedule = request.get('schedule', '30')
+        settings['limit'] = limit =  request.get('limit', '25')
+        settings['alert_title'] = 'Web Alert - %s' % ", ".join(subjects)
+        settings['email'] = request.get('email', '')
+        settings['portal_type'] = portal_type = request.get('portal_type', 'all')
+        settings['preferredLanguages'] = preferredLanguages = request.get('Language', ['en'])
+
+        b2a_email = encodeEmail(settings['email'])
+
+        OType = list()
+        if portal_type =='all':
+            OType = helper.contentTypesDL().keys()
+        else:
+            if not getattr(portal_type, 'append', None):
+                OType = [portal_type]
+            else:
+                OType = portal_type
+
+        if 'en' not in preferredLanguages :
+            preferredLanguages.append('en')
+        preferredLanguages = tuple(preferredLanguages)
+
+        searchmap = {}
+        searchmap['settings'] = settings
+        searchmap['id'] = PERSONAL_ALERT_ID
+        searchmap['title'] = settings['alert_title']
+        searchmap['active'] = 0
+        searchmap['Language'] = []
+        searchmap['Subject'] = []
+
+        # manually create the advanced query
+        query = Eq('review_state', 'published')
+        if OType:
+            query = query &  In('portal_type', OType)
+            searchmap['portal_type'] = OType
+        
+        if preferredLanguages:
+            query = query & In('Language', preferredLanguages)
+            searchmap['Language'] =  preferredLanguages
+        
+        if subjects:
+            query = query & In('Subject', subjects)
+
+        searchmap['advanced_query'] = query
+        
+        smap = self.generateSearchMap( notification_period=schedule
+                                                 , limit = limit
+                                                 , searchmap = searchmap
+                                                 )
+
+        if self.existsNotificationProfile(b2a_email):
+            np = self.getNotificationProfile(b2a_email)
+        else:
+            np = self.createNotificationProfile(b2a_email)
+        
+        # see if an alert exists by that id
+        alert = np.getNotification(PERSONAL_ALERT_ID)
+        
+        if alert:
+            np.editNotification(id=PERSONAL_ALERT_ID, searchmap=smap)
+        else:
+            np.addNotification(id=PERSONAL_ALERT_ID, searchmap=smap)
+        
+        # If alert is added as inactive successfully, send an email out to the user to confirm
+        error += self.sendConfirmationMessage(b2a_email)
+        
+        return error
 
 
     def existsNotificationProfile(self, memberUserName=None):
