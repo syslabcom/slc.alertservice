@@ -12,4 +12,7 @@ def setupVarious(context):
     if context.readDataFile('slc.alertservice_various.txt') is None:
         return
     
-    print "Alertservice: setupVarious"
+    site=context.getSite()
+    
+    # add the Alertservice Tool
+    site.manage_addProduct['slc.alertservice'].manage_addTool(type='Alertservice Tool')
