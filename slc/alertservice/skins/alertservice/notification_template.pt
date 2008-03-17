@@ -138,10 +138,8 @@ tal:replace="options/notification_id">ID</span>'</H2>
 
                 <div class="small" border="0"  bgcolor="#FFFFFF" width="390"
                        tal:define="searchmap options/searchmap|python:{};
-                       SearchableText searchmap/SearchableText/query|string:;
-                       keywords searchmap/keywords/query|python:[];
-                       path searchmap/path/query|python:[];
-
+                       SearchableText searchmap/SearchableText|string:;
+                       Subject searchmap/Subject|python:[];
                        ">
                         <div>
                 <b i18n:translate="alertservice_requested_info">Diese Ausgabe des AlertService umfa&szlig;t Informationen, die den folgenden Kriterien entsprechen</b>:
@@ -150,14 +148,9 @@ tal:replace="options/notification_id">ID</span>'</H2>
                         <span tal:condition="SearchableText">
                             <li><span i18n:translate="">Volltext enth&auml;lt</span>: <span tal:replace="SearchableText" /><br/></li>
                        </span>
-                        <span tal:condition="keywords">
-                            <li><span i18n:translate="">Stichworte</span>: <span tal:replace="keywords" /><br/></li>
+                        <span tal:condition="Subject">
+                            <li><span i18n:translate="">Stichworte</span>: <span tal:replace="python:', '.join(Subject)" /><br/></li>
                         </span>
-
-                <span tal:condition="path">
-                     <span i18n:translate="">Es werden nur folgende Pfade ber&uuml;cksichtigt</span>: <br/>
-                            <span tal:replace="structure python:'<br>'.join(path)" />
-                 </span>
             </ul>
         
         <tal:remove condition="options/remove_url | nothing">

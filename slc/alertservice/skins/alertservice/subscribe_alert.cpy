@@ -72,9 +72,6 @@ searchmap['title'] = alert_title
 searchmap['active'] = 0
 searchmap['Language'] = []
 searchmap['Subject'] = subjects
-#searchmap['path'] = []
-#searchmap['topics'] = []
-#searchmap['site_position'] = []
 
 
 # manually create the advanced query
@@ -85,12 +82,10 @@ if OType:
 
 if preferredLanguages:
     query = query & In('Language', preferredLanguages)
-    searchmap['Language'] = {'query': preferredLanguages}
+    searchmap['Language'] =  preferredLanguages
 
-
-#query = query
-
-#searchmap['path'] = {'query': searchmap['path']}
+if subjects:
+    query = query & In('Subject', subjects)
 
 searchmap['advanced_query'] = query
 
