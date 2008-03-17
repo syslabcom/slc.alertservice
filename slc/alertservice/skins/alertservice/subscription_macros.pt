@@ -1,0 +1,150 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+
+  <body>
+
+
+   <metal:Subject define-macro="subject_field">
+    <div class="field"
+        tal:define="Subject userSettings/Subject|request/Subject|python:[]">
+       <div class="key">
+            <label for="type" i18n:translate="label_subjects_of_interest">Subjects of interest:</label>
+        </div>
+        <div class="value">
+
+            <select name="Subject:list"
+                    id="Subject"
+                    size="7"
+                    multiple="multiple"
+                    tal:define="contentSubjectsDL view/contentSubjectsDL;"
+                    >
+                <option value="#"
+                        tal:repeat="subject contentSubjectsDL/items"
+                        tal:content="python:subject[1]"
+                        tal:attributes="value python:subject[0];
+                        selected python:test(subject[0] in Subject, 'selected', '')"
+                        i18n:domain="plone-metadata"
+                        i18n:translate=""
+                        >dummy</option>
+            </select>
+         </div>
+     </div>
+    </metal:Subject>
+    
+       <metal:portal_type define-macro="portal_type_field">
+        <div class="field"
+             tal:define="error errors/portal_type | nothing;
+                         portal_type userSettings/portal_type|request/portal_type|python:[];
+                         Types_in view/contentTypesDL;"
+             tal:attributes="class python:test(error, 'field error', 'field')">
+            <div class="key">
+                <label for="type" i18n:translate="label_type">Type:</label>
+            </div>
+            <div class="value">
+
+                <select id="portal_type" name="portal_type" multiple="multiple" size="3"
+                    tal:attributes="size python:len(Types_in)">
+                    <option tal:repeat="sub_val Types_in/items"
+                        tal:attributes="value python:sub_val[0];
+                        selected python:test(sub_val[0] in portal_type, 'selected', '')"
+                        tal:content="structure python:sub_val[1]" i18n:translate="" />
+                </select>
+            </div>
+        </div>
+      </metal:portal_type>
+
+      <metal:schedule define-macro="schedule_field">
+        <div class="field"
+             tal:define="schedulesList python:[('daily', 1), ('weekly', 7), ('monthly', 30)];
+                         schedule userSettings/schedule|request/schedule|python:30">
+
+            <div class="key">
+
+                <label for="schedule" i18n:translate="label_schedule">Schedule</label>
+                <span class="fieldRequired" title="Required"
+                    i18n:attributes="title"
+                i18n:translate="label_required"></span>
+            </div>
+            <div class="value">
+
+                <select id="schedule"
+                        name="schedule:int"
+                        tabindex=""
+                        tal:attributes="value schedule;
+                                        tabindex tabindex/next;">
+
+                    <tal:types_loop tal:repeat="stype schedulesList">
+                    <option value="SCHEDULETYPE"
+                            i18n:attributes="value"
+                            tal:attributes="value python: stype[1];
+                                            selected python:schedule == stype[1]"
+                            tal:content="python: stype[0]">
+                      SCHEDULE TITLE
+                    </option>
+                    </tal:types_loop>
+                </select>
+            </div>
+        </div>
+      </metal:schedule>
+
+       <metal:Language define-macro="language_field">
+        <div class="field"
+             tal:define="preferredLanguages userSettings/preferredLanguages|request/Language|python:['en']">
+            <div class="key">
+            <label for="preferredLanguages" i18n:translate="label_additional_languages">Additional Languages</label>
+
+                <div class="formHelp" i18n:translate="select_multiple_help">
+                In order to choose more than one item from the lists, press the key "control" on your keyboard, and select the item with your mouse.
+                </div>
+            </div>
+            <div class="value">
+                <p i18n:translate="description_alertservice_languageselector">Alerts are sent in English. If the content is translated you can receive it in additional languages.
+                </p>
+
+            <select name="Language:list"
+                    id="Language"
+                    multiple="multiple"
+                    size="5"
+                    tal:attributes="tabindex tabindex/next;">
+
+                    <metal:block tal:repeat="ln here/portal_languages/listSupportedLanguages">
+                        <option tal:attributes="value python:ln[0];
+                                                selected python:test(ln[0] in preferredLanguages, 'selected', '')"
+                                tal:condition="python:ln[0]!='en'"
+                                tal:content="python:ln[1]">
+                            language
+                        </option>
+                    </metal:block>
+                </select>
+            </div>
+        </div>
+      </metal:Language>
+
+       <metal:email define-macro="email_field">
+        <div class="field"
+             tal:define="error errors/email | nothing;
+                        name userSettings/email | nothing;"
+             tal:attributes="class python:test(error, 'field error', 'field')">
+            <div class="key">
+                <label for="email" i18n:translate="label_email">Your email address</label>
+                <span class="fieldRequired" title="Required"
+                        i18n:attributes="title" i18n:domain="plone"
+                        i18n:translate="label_required">(Required)</span>
+                <div i18n:translate="" tal:content="error">Validation error output</div>
+            </div>
+            <div class="value">
+                <input type="text"
+                        name="email"
+                        id="email"
+                        size="25"
+                        tal:attributes="value name;
+                        tabindex tabindex/next;
+                        " />
+            </div>
+        </div>
+       </metal:email>
+
+  </body>
+</html>
