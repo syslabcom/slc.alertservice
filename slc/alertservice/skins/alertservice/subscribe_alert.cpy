@@ -14,7 +14,7 @@ error = ''
 from slc.alertservice import AlertMessageFactory as _
 
 alerttool = getToolByName(context, 'portal_alertservice')
-reg_tool=getToolByName(context, 'portal_registration')
+reg_tool = getToolByName(context, 'portal_registration')
 
 
 # retrieving alert settings
