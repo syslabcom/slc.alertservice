@@ -359,7 +359,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
             
             body = self.notification_template(**result_keywords)
             try:
-                mh.secureSend( message=body, mto=email, mfrom=mfrom, subject=subject, subtype="plain", charset=charset)
+                mh.secureSend( message=body, mto=email, mfrom=mfrom, subject=subject, subtype="html", charset=charset)
             except Exception, why:
                 import pdb; pdb.set_trace()
                 log( "Could not send the confirmation email!")
