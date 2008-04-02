@@ -78,7 +78,7 @@ a:hover, a:active {
 
 <div align="center">
 <hr SIZE="2"/>
-<H2><a href=""><img valign="bottom" border="0" src="logo.gif"
+<H2><a href="" tal:attributes="href options/site_url"><img valign="bottom" border="0" src="logo.gif"
     tal:attributes="src string:${options/siteurl}/alertservice_icon.gif" /></a>&nbsp;Alert Service '<span
 tal:replace="options/notification_id">ID</span>'</H2>
 <hr size="1"/>
@@ -110,9 +110,9 @@ tal:replace="options/notification_id">ID</span>'</H2>
                     <li class="doc">
 
                             <span tal:condition="result/Title">
-                                <a tal:attributes="HREF string:${result/getURL}"><b><span tal:replace="result/Title">TITLE</span></b></a></span>
+                                <a tal:attributes="HREF string:${result/getURL}?sourceid=alert"><b><span tal:replace="result/Title">TITLE</span></b></a></span>
                             <span tal:condition="not:result/Title">
-                                <a tal:attributes="HREF string:${result/getURL}"><b i18n:translate="">TITLE</b></a></span>
+                                <a tal:attributes="HREF string:${result/getURL}?sourceid=alert"><b i18n:translate="">TITLE</b></a></span>
                             <br/>
 
                             <span class="info" tal:condition="result/Description">
@@ -121,9 +121,9 @@ tal:replace="options/notification_id">ID</span>'</H2>
                             </span>
                             <br/>
                 <span class="tiny">
-                            URL: <a tal:attributes="href string:${result/getURL}" tal:content="string:${result/getURL}">
+                            URL: <a tal:attributes="href string:${result/getURL}?sourceid=alert" tal:content="string:${result/getURL}">
                             <span tal:replace="options/siteurl"/>LINK</a><br/>
-                            <a  tal:attributes="href string:${result/getURL}" i18n:translate="">Mehr ...</a>
+                            <a  tal:attributes="href string:${result/getURL}?sourceid=alert" i18n:translate="">More ...</a>
                             </span>
                     </li>
                     </ul>
