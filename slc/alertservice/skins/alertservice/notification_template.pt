@@ -83,7 +83,7 @@ a:hover, a:active {
 tal:replace="options/notification_id">ID</span>'</H2>
 <hr size="1"/>
 <b class="small"><span i18n:translate="" i18n:domain="elevateIT"><span tal:replace="python:alertperiode[options.get('notification_period','')]"/></span>
-    Ausgabe f&uuml;r <span
+    edition <span
     tal:replace="options/user_name"/> vom <span tal:replace="python:here.toLocalizedTime(options['notification_date'])">13.05.1813</span></b>
  <hr size="2"/>
 </div>
@@ -91,13 +91,12 @@ tal:replace="options/notification_id">ID</span>'</H2>
 <div>
     <div class="small">
     <p>
-        <b><span i18n:translate="alertservice_information_changed_since">Die folgenden Informationen mit Ihren Kriterien sind neu oder wurden seit dem
-    <span i18n:name="date"><span tal:replace="python:here.toLocalizedTime(options['effective'], long_format=1)"/></span></span> ge&auml;ndert:</b>
+        <b><span i18n:translate="alertservice_information_changed_since">The following information that matches your criteria is new has has been changed since
+    <span i18n:name="date"><span tal:replace="python:here.toLocalizedTime(options['effective'], long_format=1)"/></span></span> </b>
     </p>
     <p>
-                <span tal:replace="options/numresults"/> <span i18n:translate="alertservice_results_found">Dokument(e) wurden gefunden</span><span tal:omit-tag=""
-                tal:condition="python:options['numresults']>len(options['results'])"><span tal:condition="python:0==1">, <span i18n:translate="alertservice_onlyfirst_shown">es werden nur
-        die ersten <span i18n:name="number"> von insgesamt <span tal:replace="python:len(options['results'])"/></span> angezeigt</span></span></span>.
+                <span tal:replace="options/numresults"/> <span i18n:translate="alertservice_results_found">Document(s) were found</span><span tal:omit-tag=""
+                tal:condition="python:options['numresults']>len(options['results'])"><span tal:condition="python:0==1">, <span i18n:translate="alertservice_onlyfirst_shown">only the first <span i18n:name="number"> of a total number of<span tal:replace="python:len(options['results'])"/></span> are shown</span></span></span>.
 
     </p>
 
@@ -110,9 +109,9 @@ tal:replace="options/notification_id">ID</span>'</H2>
                     <li class="doc">
 
                             <span tal:condition="result/Title">
-                                <a tal:attributes="HREF string:${result/getURL}?sourceid=alert"><b><span tal:replace="result/Title">TITLE</span></b></a></span>
+                                <a tal:attributes="href string:${result/getURL}?sourceid=alert"><b><span tal:replace="result/Title">TITLE</span></b></a></span>
                             <span tal:condition="not:result/Title">
-                                <a tal:attributes="HREF string:${result/getURL}?sourceid=alert"><b i18n:translate="">TITLE</b></a></span>
+                                <a tal:attributes="href string:${result/getURL}?sourceid=alert"><b i18n:translate="">TITLE</b></a></span>
                             <br/>
 
                             <span class="info" tal:condition="result/Description">
@@ -138,24 +137,30 @@ tal:replace="options/notification_id">ID</span>'</H2>
 
                 <div class="small" border="0"  bgcolor="#FFFFFF" width="390"
                        tal:define="searchmap options/searchmap|python:{};
+                       settings searchmap/settings|python:{};
                        SearchableText searchmap/SearchableText|string:;
-                       Subject searchmap/Subject|python:[];
+                       portal_type searchmap/portal_type|string:;
+                       Subject settings/Subject|python:[];
                        ">
                         <div>
-                <b i18n:translate="alertservice_requested_info">Diese Ausgabe des AlertService umfa&szlig;t Informationen, die den folgenden Kriterien entsprechen</b>:
+                <b i18n:translate="alertservice_requested_info">This alert contains information matching the followin criteria</b>:
             </div>
             <ul>
                         <span tal:condition="SearchableText">
-                            <li><span i18n:translate="">Volltext enth&auml;lt</span>: <span tal:replace="SearchableText" /><br/></li>
+                            <li><span i18n:translate="">Full text contains</span>: <span tal:replace="SearchableText" /><br/></li>
                        </span>
+                        <span tal:condition="portal_type">
+                            <li><span i18n:translate="">Type</span>: <span tal:replace="python:', '.join(portal_type)" /><br/></li>
+                        </span>
                         <span tal:condition="Subject">
-                            <li><span i18n:translate="">Stichworte</span>: <span tal:replace="python:', '.join(Subject)" /><br/></li>
+                            <li><span i18n:translate="">Subjects of interest</span>: <span tal:replace="python:', '.join(Subject)" /><br/></li>
                         </span>
             </ul>
-        
+            
+        <hr size="2" width="100%" align="center"/>
         <tal:remove condition="options/remove_url | nothing">
-            <a href="" tal:attributes="href options/remove_url">Entfernen</a> Sie diese Benachrichtigung<br>
-            <a href="" tal:attributes="href options/edit_url">Bearbeiten</a> Sie diese Benachrichtigung<br>
+            <a href="" tal:attributes="href options/remove_url">Remove</a> this alert<br>
+            <a href="" tal:attributes="href options/edit_url">Edit</a> this alert<br>
         </tal:remove>
         </div>
     </span>
