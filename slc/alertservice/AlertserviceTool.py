@@ -108,8 +108,12 @@ class AlertserviceTool(PloneBaseTool, Folder):
             else:
                 OType = portal_type
 
+        # English is always searched for
         if 'en' not in preferredLanguages :
             preferredLanguages.append('en')
+        # Language neutral is always searched for
+        if '' not in preferredLanguages:
+            preferredLanguages.append('')
         preferredLanguages = tuple(preferredLanguages)
 
         searchmap = {}
