@@ -78,7 +78,7 @@ a:hover, a:active {
 
 <div align="center">
 <hr SIZE="2"/>
-<H2><a href="" tal:attributes="href options/site_url"><img valign="bottom" border="0" src="logo.gif"
+<H2><a href="" tal:attributes="href options/siteurl"><img valign="bottom" border="0" src="logo.gif"
     tal:attributes="src string:${options/siteurl}/alertservice_icon.gif" /></a>&nbsp;Alert Service '<span
 tal:replace="options/notification_id">ID</span>'</H2>
 <hr size="1"/>
