@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE i18n:domain="elevateIT" i18n:translate="alertservice_notification_service">OSHA Notification Service</TITLE>
+<style TYPE="text/css">
+<!--
+body { font-face: Arial sans-serif; }
+.alert_body { margin-left: 5px; }
+.title {}
+.data_col { clear: both; }
+.title {margin-top: 1em;}
+.description {font-size:90%;}
+.footer{font-size:80%; color: #888; margin-top:10px;}
+.key { padding: 5px; border-top: 1px solid white;  float: left; width: 15em;}
+.val {padding: 5px; border-left: 1px solid white; border-top: 1px solid white; width: 25em; margin: 0px 0px 0px 16em;}
+.morelink {font-size: 80%;}
+#parameter_box { width: 400px; clear: both;}
+#parameter_head {padding: 5px; background-color: #CFD2E2; font-size: 110%; font-weight: bold;}
+#parameter_body { background-color: #DFE2F2; font-size: 80%; font-weight: normal;}
+h3 { border-bottom: 1px solid lightgrey;}
+-->
+</style>
+</HEAD>
+
+
+<BODY tal:define="FILTERTYPES python:['Document', 'News Article', 'Event', 'OSH_Link', 'Case Study', 'File']">
+
+<div tal:attributes="style string:background:url(${options/siteurl}/alert_notification_fond.gif);">
+    <a tal:attributes="href string:${options/siteurl}">
+        <img tal:attributes="src string:${options/siteurl}/alert_notification_banner_mail.jpg" width="430" height="90" border="0"/>
+    </a>
+</div>
+
+<div class="alert_body"
+     tal:define="results options/results;
+                 ttool nocall:here/portal_types;
+                 ordered_results python:here.notification_order_results(results);">
+
+    <h2 i18n:domain="elevateIT" i18n:translate="alertservice_notification_report">OSHA Notification Report</h2>
+
+    <div id="parameter_box"
+         tal:define="searchmap options/searchmap|python:{};
+                     topics searchmap/topics|python:[];
+                     AvailableLanguages searchmap/AvailableLanguages/query|python:[];">
+
+        <div id="parameter_head"
+             i18n:translate="alertservice_requested_info">You have requested
+        </div>
+
+        <div id="parameter_body">
+            <div class="data_col" id="keywords_col" tal:condition="python:topics">
+                <div class="key" i18n:translate="">Subjects</div>
+                <div class="val">
+                    <tal:keywords repeat="kw topics">
+                        <span tal:replace="kw" />
+                        <span tal:omit-tag="" tal:condition="not:repeat/kw/end"><br /></span>
+                    </tal:keywords>
+                </div>
+            </div>
+
+            <div class="data_col" id="lang_col" tal:condition="AvailableLanguages">
+                <div class="key" i18n:translate="">Languages</div>
+                <div class="val">
+                    <span tal:replace="python: ', '.join(AvailableLanguages)" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        <span tal:replace="options/numresults"/>
+        <span i18n:translate="alertservice_results_found">Results have been found.</span>
+        <span tal:omit-tag="" tal:condition="python:options['numresults']>len(options['results'])">
+            <span i18n:translate="alertservice_onlyfirst_shown">only the first
+                <span i18n:name="number"><span tal:replace="python:len(options['results'])"/></span>
+                are shown.
+            </span>
+        </span>
+    </p>
+
+
+<div tal:repeat="K python:ordered_results.keys()">
+ <div xtal:condition="python:K in FILTERTYPES">
+
+  <!--h3 tal:define="ti python:ttool.getTypeInfo(K);">
+      <img tal:attributes="src string:http://osha.europa.eu/${ti/getIcon}"/>
+      <span tal:replace="ti/Title"/>
+  </h3-->
+  <h3><span tal:replace="K" /></h3>
+
+  <div class="typeresults" tal:define="results python:ordered_results.get(K, [])">
+
+    <tal:results repeat="result results">
+
+        <div class="title">
+            <span tal:condition="result/Title">
+                <a tal:attributes="href string:${result/getURL}"><b><span tal:replace="result/Title">TITLE</span></b></a>
+            </span>
+            <span tal:condition="not:result/Title">
+                <a tal:attributes="href string:${result/getURL}"><b i18n:translate="">TITLE</b></a>
+            </span>
+        </div>
+
+        <div class="description">
+            <span tal:condition="result/Description">
+                <span tal:define="desc result/Description">
+                    <span tal:replace="structure python:here.portal_utilities.shortenString(here.portal_utilities.removeHTML(desc), 256)">DESCRIPTION</span>
+                </span>
+                <br/>
+            </span>
+        </div>
+
+        <div class="morelink">
+            modified: <span tal:replace="python:here.toPortalTime(result['modified'], long_format=0)"/><br>
+            <span i18n:translate="">More</span> :
+            <a tal:attributes="href string:${result/getURL}" tal:content="string:${result/getURL}">
+                <span tal:replace="options/siteurl"/>LINK
+            </a>
+        </div>
+
+
+    </tal:results>
+    </div>
+  </div>
+</div>
+
+    <div class="footer">
+        <hr>
+        <p>
+            <span i18n:translate="alertservice_notification_sentby">Notification mail sent by</span>:
+            <a tal:attributes="href string:${options/siteurl}" tal:content="string:${options/siteurl}">
+                                <span tal:replace="options/siteurl"/>LINK</a>
+            <!--
+            Notification mail sent by: 3G Network of websites, European Agency for Safety and Health at Work <br/>
+            Address: Gran Via 33, 48009 Bilbao, Spain - Phone: (34) 94 479 43 60 - Fax: (34) 94 479 43 83
+            -->
+            <br/>
+            <tal:remove condition="options/remove_url | nothing">
+            <a href="" tal:attributes="href options/remove_url">Remove</a> this alert<br>
+            <a href="" tal:attributes="href string:${options/siteurl}/subscribe_form">Create</a> a new alert<br>
+            <a href="" tal:attributes="href string:http://osha.europa.eu/comments">Comments?</a><br>
+
+            </tal:remove>
+        </p>
+    </div>
+</div>
+</BODY>
+</HTML>

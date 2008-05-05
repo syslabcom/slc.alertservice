@@ -441,7 +441,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
             result_keywords['edit_url'] = "%(origin_host)s/subscribe_form?s=%(profile_id)s&k=%(key)s" % url_params
             result_keywords['remove_url'] = "%(origin_host)s/%(tool)s/remove_alert?s=%(profile_id)s&k=%(key)s" % url_params
             
-            body = self.notification_template(**result_keywords)
+            body = self.alert_notification_template(**result_keywords)
             try:
                 mh.secureSend( message=body, mto=email, mfrom=mfrom, subject=subject, subtype="html", charset=charset)
             except Exception, why:
