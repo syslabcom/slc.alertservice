@@ -99,14 +99,17 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
         b2a_email = encodeEmail(settings['email'])
 
+        have_publications = False
         OType = list()
         if portal_type =='all':
             OType = helper.contentTypesDL().keys()
         else:
             if not getattr(portal_type, 'append', None):
-                OType = [portal_type]
+                OType = [x for x in [portal_type] ]
             else:
-                OType = portal_type
+                OType = [x for x in portal_type]
+        if 'Publication' in OType:
+            have_publications = True
 
         # English is always searched for
         if 'en' not in preferredLanguages :
@@ -127,16 +130,29 @@ class AlertserviceTool(PloneBaseTool, Folder):
         # manually create the advanced query
         query = Eq('review_state', 'published')
         if OType:
-            query = query &  In('portal_type', OType)
-            searchmap['portal_type'] = OType
-        
+            if have_publications:
+                OType.remove('Publication')
+                query = query & Or( 
+                    In('portal_type', OType), 
+                    And(
+                        In('portal_type', 'File'), In('object_provides', 'slc.publications.interfaces.IPublicationEnhanced')
+                        ) 
+                ) 
+            else:
+                query = query & In('portal_type', OType)
+            searchmap['portal_type'] = portal_type
+
         if preferredLanguages:
             query = query & In('Language', preferredLanguages)
             searchmap['Language'] =  preferredLanguages
-        
+
         if subjects:
             query = query & In('Subject', subjects)
 
+#        if have_publications:
+#            query = query & In('object_provides', 'slc.publications.interfaces.IPublicationEnhanced')
+
+        log('my final query:', query)
         searchmap['advanced_query'] = query
         
         smap = self.generateSearchMap( notification_period=schedule
@@ -549,7 +565,8 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
         for R in results:
           T = R.portal_type
-          if T == 'OSH_Link': T = 'Links'
+          if T == 'OSH_Link': T = 'Link'
+          if T == 'File': T = 'Publication'
           mylist = RESMAP.get(T, list())
           mylist.append(R)
           RESMAP[T] = mylist
