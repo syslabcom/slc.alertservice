@@ -5,7 +5,7 @@ title=Subscribe to alert
 [validators]
 validators..Save=
 validators..Cancel=
-valudators=
+validators=
 
 [actions]
 action.success..Save=traverse_to:string:subscribe_alert
