@@ -10,4 +10,4 @@ validators..Cancel=
 action.success..Save=traverse_to:string:subscribe_alert
 action.success..Cancel=redirect_to:string:subscribe_form
 action.failure=traverse_to:string:subscribe_form
-action...Cancel=redirect_to:string:subscribe_form
+action.success=redirect_to:string:subscribe_form
