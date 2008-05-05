@@ -22,7 +22,7 @@ h3 { border-bottom: 1px solid lightgrey;}
 </HEAD>
 
 
-<BODY tal:define="FILTERTYPES python:['Document', 'News Article', 'Event', 'OSH_Link', 'Case Study', 'File']">
+<BODY>
 
 <div tal:attributes="style string:background:url(${options/siteurl}/alert_notification_fond.gif);">
     <a tal:attributes="href string:${options/siteurl}">
@@ -40,7 +40,7 @@ h3 { border-bottom: 1px solid lightgrey;}
 
     <div id="parameter_box"
          tal:define="searchmap options/searchmap|python:{};
-                     topics searchmap/topics|python:[];
+                     topics searchmap/settings/Subject|python:[];
                      AvailableLanguages searchmap/AvailableLanguages/query|python:[];">
 
         <div id="parameter_head"
@@ -81,7 +81,7 @@ h3 { border-bottom: 1px solid lightgrey;}
 
 
 <div tal:repeat="K python:ordered_results.keys()">
- <div xtal:condition="python:K in FILTERTYPES">
+ <div>
 
   <!--h3 tal:define="ti python:ttool.getTypeInfo(K);">
       <img tal:attributes="src string:http://osha.europa.eu/${ti/getIcon}"/>
@@ -138,7 +138,7 @@ h3 { border-bottom: 1px solid lightgrey;}
             <br/>
             <tal:remove condition="options/remove_url | nothing">
             <a href="" tal:attributes="href options/remove_url">Remove</a> this alert<br>
-            <a href="" tal:attributes="href string:${options/siteurl}/subscribe_form">Create</a> a new alert<br>
+            <a href="" tal:attributes="href options/edit_url">Edit</a> this alert<br>
             <a href="" tal:attributes="href string:http://osha.europa.eu/comments">Comments?</a><br>
 
             </tal:remove>
