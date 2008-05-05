@@ -33,7 +33,8 @@ h3 { border-bottom: 1px solid lightgrey;}
 <div class="alert_body"
      tal:define="results options/results;
                  ttool nocall:here/portal_types;
-                 ordered_results python:here.notification_order_results(results);">
+                 atool nocall:here/portal_alertservice;
+                 ordered_results python:atool.notification_order_results(results);">
 
     <h2 i18n:domain="elevateIT" i18n:translate="alertservice_notification_report">OSHA Notification Report</h2>
 

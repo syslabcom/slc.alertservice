@@ -542,4 +542,17 @@ class AlertserviceTool(PloneBaseTool, Folder):
         return result_keywords
 
 
+    security.declarePublic('notification_order_results')
+    def notification_order_results(self, results):
+        """ order the results for the notification email"""
+        RESMAP = dict()
+
+        for R in results:
+          T = R.portal_type
+          if T == 'OSH_Link': T = 'Links'
+          mylist = RESMAP.get(T, list())
+          mylist.append(R)
+          RESMAP[T] = mylist
+        return RESMAP
+
 InitializeClass(AlertserviceTool)
