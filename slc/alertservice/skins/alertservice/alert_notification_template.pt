@@ -52,7 +52,7 @@ h3 { border-bottom: 1px solid lightgrey;}
                 <div class="key" i18n:translate="">Subjects</div>
                 <div class="val">
                     <tal:keywords repeat="kw topics">
-                        <span tal:replace="kw" />
+                        <span tal:content="kw" i18n:domain="osha" i18n:translate=""></span>
                         <span tal:omit-tag="" tal:condition="not:repeat/kw/end"><br /></span>
                     </tal:keywords>
                 </div>
