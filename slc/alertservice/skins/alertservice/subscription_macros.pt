@@ -8,7 +8,8 @@
 
    <metal:Subject define-macro="subject_field">
     <div class="field"
-        tal:define="Subject userSettings/Subject|request/Subject|python:[]">
+        tal:define="Subject userSettings/Subject|request/Subject|python:[];
+                    oshaview here/@@oshaview;">
        <div class="key">
             <label for="type" i18n:translate="label_subjects_of_interest">Subjects of interest:</label>
         </div>
@@ -18,10 +19,10 @@
                     id="Subject"
                     size="7"
                     multiple="multiple"
-                    tal:define="contentSubjectsDL view/contentSubjectsDL;"
+                    tal:define="contentSubjects oshaview/getTranslatedCategories;"
                     >
                 <option value="#"
-                        tal:repeat="subject contentSubjectsDL/items"
+                        tal:repeat="subject contentSubjects"
                         tal:content="python:subject[1]"
                         tal:attributes="value python:subject[0];
                         selected python:test(subject[0] in Subject, 'selected', '')"

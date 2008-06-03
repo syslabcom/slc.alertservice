@@ -18,7 +18,7 @@ def getTriggerkey():
     return triggerkey
 
 
-DO_LOG = True
+DO_LOG = False
 
 def log( *kwargs):
     " log something "
@@ -79,8 +79,9 @@ class AlertserviceTool(PloneBaseTool, Folder):
         return searchmap
 
 
-    def handleSubscription(self, request=None):
-        """ do the necessary steps for creating a subscription """
+    def handleSubscription(self, request=None, doNotSendConfirmation=False):
+        """ do the necessary steps for creating a subscription 
+        doNotSendConfirmation: this param can be used for scripted adding of nprofiles"""
         if request is None:
             request = self.REQUEST
 
@@ -101,7 +102,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
         have_publications = False
         OType = list()
-        if portal_type =='all':
+        if portal_type =='all' or portal_type==['all']:
             OType = helper.contentTypesDL().keys()
         else:
             if not getattr(portal_type, 'append', None):
@@ -173,9 +174,10 @@ class AlertserviceTool(PloneBaseTool, Folder):
         else:
             np.addNotification(id=PERSONAL_ALERT_ID, searchmap=smap)
         
-        # If alert is added as inactive successfully, send an email out to the user to confirm
-        error += self.sendConfirmationMessage(b2a_email)
-        
+        if not doNotSendConfirmation:
+            # If alert is added as inactive successfully, send an email out to the user to confirm
+            error += self.sendConfirmationMessage(b2a_email)
+            
         return error
 
 
