@@ -429,10 +429,15 @@ class AlertserviceTool(PloneBaseTool, Folder):
                 continue
 
             # Update the lastrun attribute, setting it to the current DateTime
+            oldrun = searchmap['lastrun']
             searchmap['lastrun'] = currentDateTime
 
-            # update the 'effective' parameter with the current DateTime
-            searchmap['effective'] = {'query': currentDateTime - period, 'range':'min'}
+            # update the 'effective' parameter with the current DateTime minus period,
+            # or with the old lastrun date, if it lies before it.
+            eff = currentDateTime - period
+            if oldrun and isinstance(oldrun, DateTime) and oldrun < eff:
+                eff = oldrun
+            searchmap['effective'] = {'query': eff, 'range':'min'}
 
             # Generate the Mailbody
             result_keywords = self.generateNotificationResults(searchmap, fullname)
