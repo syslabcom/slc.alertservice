@@ -508,7 +508,6 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
         origin_host = self.REQUEST['SERVER_URL']
 
-        lastrun = searchmap.get('lastrun', DateTime('2007/1/1'))
         notification_id = searchmap.get('title', '')
         notification_date = DateTime()
         limit = searchmap.get('limit', 0)
@@ -532,8 +531,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
         results = []
         query = searchmap['advanced_query']
 
-        moddate = DateTime() - notification_period
-        query = query & Ge('effective', moddate) & ~ Le('expires', DateTime())
+        query = query & Ge('effective', effective) & ~ Le('expires', DateTime())
         log('\n advanced_query: ', query)
         results = pc.evalAdvancedQuery(query, (('effective','desc'),))
 
