@@ -433,7 +433,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
                 continue
 
             # Update the lastrun attribute, setting it to the current DateTime
-            oldrun = searchmap['lastrun']
+            oldrun = searchmap.get('lastrun', None)
             searchmap['lastrun'] = currentDateTime
 
             # update the 'effective' parameter with the current DateTime minus period,
