@@ -11,6 +11,7 @@ from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
 from slc.alertservice.config import triggerkey
 from slc.alertservice import AlertMessageFactory as _
 import zLOG
+import transaction
 
 from Globals import InitializeClass
 
@@ -367,8 +368,11 @@ class AlertserviceTool(PloneBaseTool, Folder):
         log("profiles", len(profile_ids))
         count = 0
         for profile_id in profile_ids:
-            count += self.generateNotification(profile_id=profile_id, now=now, maxnumber=maxnumber, current_count=count, ids=ids)
-
+            count += self.generateNotification(profile_id=profile_id, now=now, 
+                maxnumber=maxnumber, current_count=count, ids=ids)
+            if  count % 25 == 0:
+                log("%d emails sent so far" %count)
+                transaction.commit()
             if maxnumber>0 and count>=maxnumber:
                 log("triggerGeneralNotification:: breaking because count(%d) >= max(%d)" %(count,maxnumber) )
                 break
@@ -495,7 +499,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
             if maxnumber>0 and current_count>=maxnumber:
 #                 print "generateNotification: breaking because count (%d) >= max(%d)" %(current_count, maxnumber)
                 break
-
+        
         return mail_sent
 
 
