@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
 from slc.alertservice.config import triggerkey
 from slc.alertservice import AlertMessageFactory as _
+import zLOG
 
 from Globals import InitializeClass
 
@@ -18,7 +19,7 @@ def getTriggerkey():
     return triggerkey
 
 
-DO_LOG = False
+DO_LOG = True
 
 def log( *kwargs):
     " log something "
@@ -28,6 +29,8 @@ def log( *kwargs):
             for kwarg in kwargs:
                 mesg += str(kwarg) + ' '
             print mesg
+            zLOG.LOG('AlertService', zLOG.INFO,
+              mesg)
         except:
             print [kwargs]
 
@@ -153,7 +156,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
 #        if have_publications:
 #            query = query & In('object_provides', 'slc.publications.interfaces.IPublicationEnhanced')
 
-        log('my final query:', query)
+#        log('my final query:', query)
         searchmap['advanced_query'] = query
         
         smap = self.generateSearchMap( notification_period=schedule
@@ -331,7 +334,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
         REQUEST = self.REQUEST
         s = REQUEST.get('s', '')
         k = REQUEST.get('k', '')
-        log( "Have s and k", s, k)
+#        log( "Have s and k", s, k)
         if not (s and k):
             return {}
         np = self.getNotificationProfile(s)
@@ -361,7 +364,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
         ids = request.get('ids', [])
         log("\n\ntriggerGeneralNotification")
         profile_ids = self.nprofiles.objectIds()
-        log("profiles",  profile_ids)
+        log("profiles", len(profile_ids))
         count = 0
         for profile_id in profile_ids:
             count += self.generateNotification(profile_id=profile_id, now=now, maxnumber=maxnumber, current_count=count, ids=ids)
@@ -369,6 +372,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
             if maxnumber>0 and count>=maxnumber:
                 log("triggerGeneralNotification:: breaking because count(%d) >= max(%d)" %(count,maxnumber) )
                 break
+        log("number of Mails sent: %d" %count)
         return "number of Mails sent: %d" %count
 
 
@@ -376,9 +380,9 @@ class AlertserviceTool(PloneBaseTool, Folder):
         """ generates a notification email for a search result based on a preselected set of catalog queries """
         if profile_id is None:
             return 0
-        log( "In generateNotification", profile_id)
+#        log( "In generateNotification", profile_id)
 
-        log( "generateNotification. maxnumber: %d, current_count: %d" %(maxnumber, current_count))
+#        log( "generateNotification. maxnumber: %d, current_count: %d" %(maxnumber, current_count))
         email = decodeEmail(profile_id)
         notification_profile = self.getNotificationProfile(profile_id)
         fullname = email
@@ -410,12 +414,12 @@ class AlertserviceTool(PloneBaseTool, Folder):
         if len(keys)==0:
             keys = notifications.keys()
 
-        log( "Keys to process:", keys)
+#        log( "Keys to process:", keys)
         for k in keys:
             searchmap = notifications.get(k)
             active = int(searchmap.get('active', 0))
             if not active:
-                log( "Continuing because profile %s in inactive" %k)
+#                log( "Continuing because profile %s in inactive" %k)
                 continue
             period = int(searchmap.get('notification_period', 0))
             lastrun = searchmap.get('lastrun', DateTime(0))
@@ -425,7 +429,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
             perioddelta = float(period)-0.1 
             # it doesnt matter if period is slightly less because we run the script only once a day anyway.
             if (currentDateTime < lastrun+perioddelta) and now==0:
-                log( "continuing because of lastrun period", currentDateTime, lastrun+perioddelta)
+#                log( "continuing because of lastrun period", currentDateTime, lastrun+perioddelta)
                 continue
 
             # Update the lastrun attribute, setting it to the current DateTime
@@ -441,9 +445,9 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
             # Generate the Mailbody
             result_keywords = self.generateNotificationResults(searchmap, fullname)
-            log('I just called generateNotificationResults. My results are:\n', result_keywords)
+#            log('I just called generateNotificationResults. My results are:\n', result_keywords)
             if result_keywords is None: # No search results for this time
-                log( "continuing because text is none")
+#                log( "continuing because text is none")
                 continue
             # Everything is fine, we found results,
             # we have stepped over the period of waiting, letz send
@@ -466,10 +470,11 @@ class AlertserviceTool(PloneBaseTool, Folder):
             
             body = self.alert_notification_template(**result_keywords)
             try:
-                mh.secureSend( message=body, mto=email, mfrom=mfrom, subject=subject, subtype="html", charset=charset)
+                mh.secureSend(message=body, mto=email, mfrom=mfrom, 
+                    subject=subject, subtype="html", charset=charset)
             except Exception, why:
                 import pdb; pdb.set_trace()
-                log( "Could not send the confirmation email!")
+#                log( "Could not send the confirmation email!")
                 return mail_sent
                 
 #            self.portal_utilities.send_mail( variables = variables,
@@ -500,7 +505,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
     def generateNotificationResults(self, searchmap, fullname):
         " computes results for a given profile "
         searchmap = searchmap.copy()
-        log( "\n----generateNotificationResults:", searchmap)
+#        log( "\n----generateNotificationResults:", searchmap)
         pc = getToolByName(self, 'portal_catalog')
         if hasattr(pc, 'getZCatalog'):
             pc = pc.getZCatalog()
@@ -532,18 +537,18 @@ class AlertserviceTool(PloneBaseTool, Folder):
         query = searchmap['advanced_query']
 
         query = query & Ge('effective', effective) & ~ Le('expires', DateTime())
-        log('\n advanced_query: ', query)
+#        log('\n advanced_query: ', query)
         results = pc.evalAdvancedQuery(query, (('effective','desc'),))
 
 
         numresults = len(results)
-        log('I have %d results' %numresults)
+#        log('I have %d results' %numresults)
 
         if 0 < limit < numresults:
             results = results[:limit]
 
         if len(results)==0:
-            log( "ALERT: No Searchresults for user", fullname)
+#            log( "ALERT: No Searchresults for user", fullname)
             return None
 
         md = self.portal_membership
