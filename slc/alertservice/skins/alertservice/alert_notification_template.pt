@@ -74,7 +74,7 @@ h3 { border-bottom: 1px solid lightgrey;}
         <span tal:omit-tag="" tal:condition="python:options['numresults']>len(options['results'])">
             <span i18n:translate="alertservice_onlyfirst_shown">Only the first
                 <span i18n:name="number"><span tal:replace="python:len(options['results'])"/></span>
-                are shown.
+                most topical results are shown.
             </span>
         </span>
     </p>
@@ -95,10 +95,10 @@ h3 { border-bottom: 1px solid lightgrey;}
 
         <div class="title">
             <span tal:condition="result/Title">
-                <a tal:attributes="href string:${result/getURL}"><b><span tal:replace="result/Title">TITLE</span></b></a>
+                <a tal:attributes="href string:${result/getURL}?sourceid=alert"><b><span tal:replace="result/Title">TITLE</span></b></a>
             </span>
             <span tal:condition="not:result/Title">
-                <a tal:attributes="href string:${result/getURL}"><b i18n:translate="">TITLE</b></a>
+                <a tal:attributes="href string:${result/getURL}?sourceid=alert"><b i18n:translate="">TITLE</b></a>
             </span>
         </div>
 
@@ -114,7 +114,7 @@ h3 { border-bottom: 1px solid lightgrey;}
         <div class="morelink">
             modified: <span tal:replace="python:here.toLocalizedTime(result['modified'], long_format=0)"/><br>
             <span i18n:translate="">More</span> :
-            <a tal:attributes="href string:${result/getURL}" tal:content="string:${result/getURL}">
+            <a tal:attributes="href string:${result/getURL}?sourceid=alert" tal:content="string:${result/getURL}">
                 <span tal:replace="options/siteurl"/>LINK
             </a>
         </div>
