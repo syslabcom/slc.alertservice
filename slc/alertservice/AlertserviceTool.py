@@ -1,6 +1,6 @@
 from Products.CMFPlone.PloneBaseTool import PloneBaseTool
 from OFS.Folder import Folder
-import AccessControl
+import AccessControl, os
 from DateTime import DateTime
 from Products.BTreeFolder2.BTreeFolder2 import manage_addBTreeFolder, BTreeFolder2, BTreeFolder2Base
 from Products.ZCatalog.ZCatalog import ZCatalog
@@ -12,6 +12,7 @@ from slc.alertservice.config import triggerkey
 from slc.alertservice import AlertMessageFactory as _
 import zLOG
 import transaction
+from zope.component import getMultiAdapter
 
 from Globals import InitializeClass
 
@@ -540,8 +541,24 @@ class AlertserviceTool(PloneBaseTool, Folder):
         results = []
         query = searchmap['advanced_query']
 
-        query = query & Ge('effective', effective) & ~ Le('expires', DateTime())
+        now = DateTime()
+        # discard items that are expired
+        query = query & Ge('effective', effective) & ~ Le('expires', now)
+        # discard items that aren't effective yet
+        query = query & ~ Ge('effective', now)
+
+        # discard unwanted content
+        exclude_paths = self.getProperty('exclude_paths')
+        if exclude_paths:
+            exclude_paths = [x for x in exclude_paths if x.strip()!='']
+            exclude_paths = [x[1:] for x in exclude_paths if x.startswith('/')]
+            if len(exclude_paths):
+                portal_state = getMultiAdapter((self, self.REQUEST), name=u'plone_portal_state')
+                navigation_root_path = portal_state.navigation_root_path()
+                unwanted =[os.path.join(navigation_root_path, xp) for xp in exclude_paths]
+                query = query & ~In('path', unwanted)
 #        log('\n advanced_query: ', query)
+
         results = pc.evalAdvancedQuery(query, (('effective','desc'),))
 
 
