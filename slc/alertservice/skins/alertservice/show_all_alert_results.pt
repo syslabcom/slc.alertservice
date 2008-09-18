@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+<div metal:fill-slot="main"
+     i18n:domain="slc.alertservice"
+     tal:define="errors options/state/getErrors |nothing;
+                 view context/@@subscribe_helper;
+                 results view/getUserResults | python:{};">
+
+  <span tal:condition="results">
+    <span tal:define="ordered_results python:here.portal_alertservice.notification_order_results(results)">
+        <div tal:repeat="K python:ordered_results.keys()">
+         <div>
+        
+          <h3><span tal:replace="K" /></h3>
+        
+          <div class="typeresults" tal:define="results python:ordered_results.get(K, [])">
+        
+            <tal:results repeat="result results">
+                <div class="title">
+                    <span tal:condition="result/Title">
+                        <a tal:attributes="href string:${result/getURL}?sourceid=alert"><b><span tal:replace="result/Title">TITLE</span></b></a>
+                    </span>
+                    <span tal:condition="not:result/Title">
+                        <a tal:attributes="href string:${result/getURL}?sourceid=alert"><b i18n:translate="">TITLE</b></a>
+                    </span>
+                </div>
+        
+                <div class="description">
+                    <span tal:condition="result/Description">
+                        <span tal:define="desc result/Description">
+                            <span tal:replace="structure python:here.restrictedTraverse('@@oshaview').cropHtmlText(desc, 256)">DESCRIPTION</span>
+                        </span>
+                        <br/>
+                    </span>
+                </div>
+        
+                <div class="morelink">
+                    modified: <span tal:replace="python:here.toLocalizedTime(result['modified'], long_format=0)"/><br>
+                </div>
+                <br/>
+        
+            </tal:results>
+            </div>
+          </div>
+        </div>
+    </span>
+  </span>
+
+</div>
+</body>
+</html>
+

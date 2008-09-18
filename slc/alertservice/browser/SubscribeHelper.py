@@ -45,10 +45,18 @@ class SubscribeHelper(BrowserView):
         # simple hardcoded string
         return "personalization_alert"
 
+    def getUserResults(self):
+        """ returns the user's profile based on parameters passed in the REQUEST """
+        alert_tool = getToolByName(self.context, 'portal_alertservice')
+        profile = alert_tool.getUserProfile()
+        if profile:
+            return alert_tool.showAllResultsForProfile(self.context.REQUEST.get('s', ''))
+        return []
+
 
     def getUserSettings(self):
         """ returns exisitng settings for a given user """
-        alert_tool = getToolByName(self, 'portal_alertservice')
+        alert_tool = getToolByName(self.context, 'portal_alertservice')
         profile = alert_tool.getUserProfile()
         settings = profile.get(self.getPersonalAlertId(), {}).get('settings', {})
         return settings

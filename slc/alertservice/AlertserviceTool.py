@@ -381,6 +381,34 @@ class AlertserviceTool(PloneBaseTool, Folder):
         return "number of Mails sent: %d" %count
 
 
+    def showAllResultsForProfile(self, profile_id=None):
+        """ Return all results for a certain profile, to be displayed in the browser, not sent in an alert """
+        if profile_id is None:
+            return []
+
+        email = decodeEmail(profile_id)
+        notification_profile = self.getNotificationProfile(profile_id)
+        fullname = email
+
+        if (email is None) or (notification_profile is None):
+            return 0
+
+        currentDateTime = DateTime()
+        notifications = notification_profile.getNotifications()
+        keys = notifications.keys()
+        for k in keys:
+            searchmap = notifications.get(k)
+            sm = searchmap.copy()
+            period = int(sm.get('notification_period', 0))
+            oldrun = sm.get('lastrun', None)
+            eff = currentDateTime - period
+            if oldrun and isinstance(oldrun, DateTime) and oldrun < eff:
+                eff = oldrun
+            sm['effective'] = {'query': eff, 'range':'min'}
+            results = self.generateNotificationResults(sm, fullname, pure_results=True)
+            return results
+
+
     def generateNotification(self, profile_id=None, now=0, maxnumber=0, current_count=0, ids=[]):
         """ generates a notification email for a search result based on a preselected set of catalog queries """
         if profile_id is None:
@@ -472,6 +500,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
             url_params = dict(origin_host=origin_host, tool=self.id, profile_id=profile_id, key=secretkey)
             result_keywords['edit_url'] = "%(origin_host)s/subscribe_form?s=%(profile_id)s&k=%(key)s" % url_params
             result_keywords['remove_url'] = "%(origin_host)s/%(tool)s/remove_alert?s=%(profile_id)s&k=%(key)s" % url_params
+            result_keywords['more_url'] = "%(origin_host)s/show_all_alert_results?s=%(profile_id)s&k=%(key)s" % url_params
             
             body = self.alert_notification_template(**result_keywords)
             try:
@@ -507,7 +536,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
 
     security.declarePublic('generateNotificationResults')
-    def generateNotificationResults(self, searchmap, fullname):
+    def generateNotificationResults(self, searchmap, fullname, pure_results=False):
         " computes results for a given profile "
         searchmap = searchmap.copy()
 #        log( "\n----generateNotificationResults:", searchmap)
@@ -561,6 +590,8 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
         results = pc.evalAdvancedQuery(query, (('effective','desc'),))
 
+        if pure_results:
+            return results
 
         numresults = len(results)
 #        log('I have %d results' %numresults)
