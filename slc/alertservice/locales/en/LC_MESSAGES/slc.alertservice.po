@@ -1,0 +1,93 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: en-au en-bz en-ca en-ie en-jm en-nz en-ph en-za en-tt en-gb en-us en-zw\n"
+
+msgid "heading_edit_alert"
+msgstr "Edit an Alert"
+
+msgid "heading_create_alert"
+msgstr "Create an Alert"
+
+msgid "description_edit_alert"
+msgstr "Please specify your query according to your interests:"
+
+
+msgid "alertservice_notification_sentby"
+msgstr "Notification mail sent by"
+
+msgid "label_remove_alert"
+msgstr "Remove this alert"
+
+msgid "label_edit_alert"
+msgstr "Edit this alert"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "You have suscribed to an alert."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "You will soon receive a confirmation message with a link to verify your request or to cancel it."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "If you don't verify your alert, you will not receive further emails."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Notifications are sent out usually during the night and weekends, so you will probably not see your first notification before tomorrow."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "You can always cancel your alert by clicking the Remove link at the bottom of each email."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Thank you for using the alert service!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "You have requested a status email on your alerts."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "You will soon receive a confirmation message with links to manage your alerts."
+
+msgid "Create alert"
+msgstr "Create alert"
+
+msgid "alertservice_requested_info"
+msgstr "You have requested"
+
+msgid "alertservice_results_found"
+msgstr "${number} results have been found."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Only the first ${number} most topical results are shown."
+
+msgid "alertservice_view_all"
+msgstr "Click here to view all results"
+
+msgid "No alert was found. Please create a new alert."
+msgstr "No alert was found. Please create a new alert."
+
+msgid "This url is not valid, no alert found"
+msgstr "This url is not valid, no alert found"
+
+msgid "Your alert is now activated."
+msgstr "Your alert is now activated."
+
+msgid "Your alert has already been activated."
+msgstr "Your alert has already been activated."
+
+msgid "Your alert has been removed."
+msgstr "Your alert has been removed."
+
+
