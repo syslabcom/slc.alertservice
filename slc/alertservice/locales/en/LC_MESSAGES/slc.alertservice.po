@@ -26,7 +26,6 @@ msgstr "Create an Alert"
 msgid "description_edit_alert"
 msgstr "Please specify your query according to your interests:"
 
-
 msgid "alertservice_notification_sentby"
 msgstr "Notification mail sent by"
 
@@ -75,19 +74,23 @@ msgstr "Only the first ${number} most topical results are shown."
 msgid "alertservice_view_all"
 msgstr "Click here to view all results"
 
-msgid "No alert was found. Please create a new alert."
+msgid "no_alert_found"
 msgstr "No alert was found. Please create a new alert."
 
-msgid "This url is not valid, no alert found"
+msgid "url_not_valid"
 msgstr "This url is not valid, no alert found"
 
-msgid "Your alert is now activated."
+msgid "alert_activated"
 msgstr "Your alert is now activated."
 
-msgid "Your alert has already been activated."
+msgid "alert_already_activated"
 msgstr "Your alert has already been activated."
 
-msgid "Your alert has been removed."
+msgid "alert_removed"
 msgstr "Your alert has been removed."
 
+msgid "click_to_confirm"
+msgstr "Click to confirm your Alert"
 
+msgid "notification_from"
+msgstr "Notification from"

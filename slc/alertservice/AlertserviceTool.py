@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
 from slc.alertservice.config import triggerkey
 from slc.alertservice import AlertMessageFactory as _
+from zope.i18n import translate
 import zLOG
 import transaction
 from zope.component import getMultiAdapter
@@ -277,7 +278,8 @@ class AlertserviceTool(PloneBaseTool, Folder):
         email = decodeEmail(profile_id)
         from_addr = self.portal_properties.site_properties.email_from_address
         to = '%s <%s>' % (email, email)
-        subject = "Click to confirm your Alert"
+        subject_msg = _(u'click_to_confirm', default=u"Click to confirm your Alert")
+        subject = translate(subject_msg)
         origin_host = self.REQUEST['SERVER_URL']
         np = self.getNotificationProfile(profile_id)
         url_params = dict(origin_host=origin_host, tool=self.id, profile_id=profile_id, key=np._getSecretKey())
@@ -299,10 +301,10 @@ class AlertserviceTool(PloneBaseTool, Folder):
         """ If an inactive profile exists with that ID, it gets switched to active """
         np = self.getNotificationProfile(s)
         if np is None:
-            msg = _(u"No alert was found. Please create a new alert.")
+            msg = _(u'no_alert_found', default=u"No alert was found. Please create a new alert.")
             return self.alertservice_feedback_view(msg=msg)
         if k != np._getSecretKey():
-            msg = _(u"This url is not valid, no alert found")
+            msg = _(u'url_not_valid', default=u"This url is not valid, no alert found")
             return self.alertservice_feedback_view(msg=msg)
         N = np._notifications
         changed = 0
@@ -312,9 +314,9 @@ class AlertserviceTool(PloneBaseTool, Folder):
                 changed = 1
         if changed == 1:
             np._notifications = N
-            msg = _(u"Your alert is now activated.")
+            msg = _(u'alert_activated', default=u"Your alert is now activated.")
         else:
-            msg = _(u"Your alert has already been activated.")
+            msg = _(u'alert_already_activated', default=u"Your alert has already been activated.")
         return self.alertservice_feedback_view(msg=msg)
 
     def remove_alert(self, s=None, k=None):
@@ -322,10 +324,10 @@ class AlertserviceTool(PloneBaseTool, Folder):
         np = self.getNotificationProfile(s)
         if np:
             if k != np._getSecretKey():
-                msg = _(u"This url is not valid, no alert found")
+                msg = _(u'url_not_valid', default=u"This url is not valid, no alert found")
             else:
                 self.deleteNotificationProfile(s)
-                msg = _(u"Your alert has been removed.")
+                msg = _(u'alert_removed', default=u"Your alert has been removed.")
         else:
             msg = _(u"There is no such alert.")
 
@@ -415,6 +417,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
             return 0
 #        log( "In generateNotification", profile_id)
 
+        
 #        log( "generateNotification. maxnumber: %d, current_count: %d" %(maxnumber, current_count))
         email = decodeEmail(profile_id)
         notification_profile = self.getNotificationProfile(profile_id)
@@ -431,7 +434,8 @@ class AlertserviceTool(PloneBaseTool, Folder):
         mfrom = props_tool.site_properties.getProperty('notification_email_from_address', '')
         if mfrom == '':
             mfrom = portal.getProperty('email_from_address', '')
-        subject = "Notification from %s" % origin_host  #XXX
+        subj_msg = _(u'notification_from', default=u"Notification from")
+        subject = "%s %s" %(translate(subj_msg), origin_host)
 
         mail_sent = 0
 
