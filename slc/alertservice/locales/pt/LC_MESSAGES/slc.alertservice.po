@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: pt\n"
+"Language-Name: Portugese\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Editar um Alerta"
+
+msgid "heading_create_alert"
+msgstr "Criar um Alerta"
+
+msgid "description_edit_alert"
+msgstr "Especifique a consulta de acordo com os seus interesses:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Mensagem de notificação enviada por"
+
+msgid "label_remove_alert"
+msgstr "Remover este alerta"
+
+msgid "label_edit_alert"
+msgstr "Editar este alerta"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Subscreveu um alerta."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Receberá em breve uma mensagem de confirmação com uma ligação para verificar o seu pedido ou cancelá-lo."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Se não verificar o alerta, não receberá mais mensagens de correio electrónico."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "As notificações são enviadas geralmente durante a noite e fins-de-semana, pelo que só deverá ver a sua primeira notificação amanhã."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Pode sempre cancelar o alerta clicando na ligação Remover na parte inferior de cada mensagem de correio electrónico."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Obrigado por utilizar o serviço de alerta!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Solicitou uma mensagem de correio electrónico com o estado dos seus alertas."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Receberá brevemente uma mensagem de confirmação com ligações para gerir os seus alertas."
+
+msgid "Create alert"
+msgstr "Criar alerta"
+
+msgid "alertservice_requested_info"
+msgstr "Solicitou"
+
+msgid "alertservice_results_found"
+msgstr "Foram encontrados ${number} resultados."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Apenas são apresentados os ${number} primeiros resultados com mais tópicos."
+
+msgid "alertservice_view_all"
+msgstr "Clique aqui para visualizar todos os resultados"
+
+msgid "no_alert_found"
+msgstr "Não foram encontrados alertas. Crie um novo alerta."
+
+msgid "url_not_valid"
+msgstr "Este url não é válido, não foram encontrados alertas"
+
+msgid "alert_activated"
+msgstr "O alerta está agora activado."
+
+msgid "alert_already_activated"
+msgstr "O alerta já tinha sido activado."
+
+msgid "alert_removed"
+msgstr "O alerta já tinha sido removido."
+	
+msgid "click_to_confirm"
+msgstr "Clique para confirmar o alerta"
+	
+msgid "notification_from"
+msgstr "Notificação enviada por"

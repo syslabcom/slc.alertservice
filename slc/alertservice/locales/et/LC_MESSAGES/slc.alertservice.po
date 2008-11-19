@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: et\n"
+"Language-Name: Estonian\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Muutke teadet"
+
+msgid "heading_create_alert"
+msgstr "Looge teade"
+
+msgid "description_edit_alert"
+msgstr "Kirjutage oma päring:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Teate saatja:"
+
+msgid "label_remove_alert"
+msgstr "Eemaldage see teade"
+
+msgid "label_edit_alert"
+msgstr "Muutke seda teadet"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Olete tellinud teated."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Saate peatselt kinnituse koos lingiga, mille kaudu saate taotluse kinnitada või tühistada."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Kui jätate hoiatuse kinnitamata, siis teile rohkem e-kirju ei saadeta."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Teated saadetakse tavaliselt öösel või nädalavahetusel, mille tõttu näete esimest teadet tõenäoliselt alles homme."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Saate teate igal ajal tühistada, kui klõpsate e-kirja lõpus linki „Eemalda”."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Täname teid teateteenuse kasutamise eest!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Olete tellinud e-kirja teadete oleku kohta."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Saate peagi kinnituse koos teadete haldamise linkidega."
+
+msgid "Create alert"
+msgstr "Looge teade"
+
+msgid "alertservice_requested_info"
+msgstr "Tellitud teave:"
+
+msgid "alertservice_results_found"
+msgstr "Leiti ${number} tulemus(t)."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Kuvatakse ainult esimesed ${number} kõige teemakohasemat tulemust."
+
+msgid "alertservice_view_all"
+msgstr "Kõikide tulemuste vaatamiseks klõpsake siin"
+
+msgid "no_alert_found"
+msgstr "Teadet ei leitud. Palun looge uus teade."
+
+msgid "url_not_valid"
+msgstr "Veebiaadress ei ole õige, teadet ei leitud"
+
+msgid "alert_activated"
+msgstr "Teie teade on nüüd aktiveeritud."
+
+msgid "alert_already_activated"
+msgstr "Teie teade on juba aktiveeritud."
+
+msgid "alert_removed"
+msgstr "Teie teade on eemaldatud."
+	
+msgid "click_to_confirm"
+msgstr "Klõpsake, et teade kinnitada"
+	
+msgid "notification_from"
+msgstr "Teade järgmiselt saatjalt:"

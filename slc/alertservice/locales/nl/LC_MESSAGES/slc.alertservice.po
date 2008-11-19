@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: nl\n"
+"Language-Name: Dutch\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Een waarschuwing bewerken"
+
+msgid "heading_create_alert"
+msgstr "Een waarschuwing aanmaken"
+
+msgid "description_edit_alert"
+msgstr "Specificeer uw zoekopdracht naargelang uw belangstelling:"
+
+msgid "alertservice_notification_sentby"
+msgstr "E-mailbericht verzonden door"
+
+msgid "label_remove_alert"
+msgstr "Deze waarschuwing verwijderen"
+
+msgid "label_edit_alert"
+msgstr "Deze waarschuwing bewerken"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "U hebt zich op een waarschuwing geabonneerd."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "U ontvangt spoedig een e-mailbericht met een link om uw verzoek te bevestigen of ongedaan te maken."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Als u uw waarschuwing niet bevestigt, ontvangt u verder geen e-mailberichten meer."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Berichten worden doorgaans 's nachts en in het weekeinde verzonden. U zult dus waarschijnlijk niet voor morgen uw eerste bericht ontvangen."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "U kunt uw waarschuwing altijd verwijderen door op de link 'Remove' te klikken, die onderaan elke e-mail staat."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Dank u dat u gebruik maakt van de waarschuwingsdienst!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "U hebt een statusoverzicht van uw waarschuwingen opgevraagd."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "U ontvangt spoedig een e-mailbericht met links om uw waarschuwingen te beheren."
+
+msgid "Create alert"
+msgstr "Een waarschuwing aanmaken"
+
+msgid "alertservice_requested_info"
+msgstr "U hebt verzocht om"
+
+msgid "alertservice_results_found"
+msgstr "Er zijn ${number} resultaten gevonden."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Alleen de eerste ${number} meest relevante resultaten worden getoond."
+
+msgid "alertservice_view_all"
+msgstr "Klik hier om alle resultaten te bekijken."
+
+msgid "no_alert_found"
+msgstr "Geen waarschuwing gevonden. Maak een nieuwe waarschuwing aan."
+
+msgid "url_not_valid"
+msgstr "URL is ongeldig. Geen waarschuwing gevonden."
+
+msgid "alert_activated"
+msgstr "Uw abonnement is nu geactiveerd."
+
+msgid "alert_already_activated"
+msgstr "Uw abonnement is al geactiveerd."
+
+msgid "alert_removed"
+msgstr "Uw abonnement is verwijderd."
+	
+msgid "click_to_confirm"
+msgstr "Klik hier om uw waarschuwing te bevestigen."
+	
+msgid "notification_from"
+msgstr "Bericht van"

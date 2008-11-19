@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: cs\n"
+"Language-Name: Czech\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Upravit upozornění"
+
+msgid "heading_create_alert"
+msgstr "Vytvořit upozornění"
+
+msgid "description_edit_alert"
+msgstr "Upřesněte svůj dotaz podle svých zájmů:"
+
+msgid "alertservice_notification_sentby"
+msgstr "E-mailové oznámení odesláno"
+
+msgid "label_remove_alert"
+msgstr "Odstranit toto upozornění"
+
+msgid "label_edit_alert"
+msgstr "Upravit toto upozornění"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Přihlásili jste se k odběru upozornění."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Brzy obdržíte potvrzovací zprávu s odkazem pro potvrzení vaší žádosti nebo pro její zrušení."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Pokud své upozornění nepotvrdíte, neobdržíte již žádné další e-maily."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Oznámení jsou obvykle posílána v noci nebo o víkendech, první oznámení proto pravděpodobně obdržíte nejdříve zítra."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Své upozornění můžete kdykoli zrušit kliknutím na odkaz Odstranit v dolní části každého e-mailu."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Děkujeme vám, že používáte službu upozornění!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Vyžádali jste si e-mail s informacemi o stavu vašich upozornění."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Brzy obdržíte potvrzovací zprávu s odkazy pro správu vašich upozornění."
+
+msgid "Create alert"
+msgstr "Vytvořit upozornění"
+
+msgid "alertservice_requested_info"
+msgstr "Vyžádali jste si"
+
+msgid "alertservice_results_found"
+msgstr "Bylo nalezeno ${number} výsledků."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Je zobrazeno pouze prvních ${number} nejaktuálnějších výsledků."
+
+msgid "alertservice_view_all"
+msgstr "Kliknutím zde zobrazíte všechny výsledky"
+
+msgid "no_alert_found"
+msgstr "Nebylo nalezeno žádné upozornění. Vytvořte nové upozornění."
+
+msgid "url_not_valid"
+msgstr "Tato URL adresa není platná, nebylo nalezeno žádné upozornění"
+
+msgid "alert_activated"
+msgstr "Vaše upozornění je nyní aktivováno."
+
+msgid "alert_already_activated"
+msgstr "Vaše upozornění již bylo aktivováno."
+
+msgid "alert_removed"
+msgstr "Vaše upozornění bylo odstraněno."
+	
+msgid "click_to_confirm"
+msgstr "Kliknutím zde potvrdíte své upozornění"
+	
+msgid "notification_from"
+msgstr "Oznámení od"

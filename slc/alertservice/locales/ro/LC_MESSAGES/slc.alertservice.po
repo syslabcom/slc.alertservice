@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: ro\n"
+"Language-Name: Romanian\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Editaţi o alertă"
+
+msgid "heading_create_alert"
+msgstr "Creaţi o alertă"
+
+msgid "description_edit_alert"
+msgstr "Vă rugăm să precizaţi cererea în funcţie de interesele dumneavoastră:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Mail de notificare trimis de către"
+
+msgid "label_remove_alert"
+msgstr "Eliminaţi această alertă"
+
+msgid "label_edit_alert"
+msgstr "Editaţi această alertă"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "V-aţi abonat la o alertă."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "În curând veţi primi un mesaj de confirmare cu un link pentru verificarea cererii dumneavoastră sau anularea acesteia."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "În cazul în care nu vă verificaţi alerta, nu veţi mai primi alte email-uri."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "De obicei, notificările se trimit pe durata nopţii şi la sfârşit de săptămână; prin urmare, este probabil să nu puteţi vedea notificarea mai devreme de ziua de mâine."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Puteţi anula oricând alerta dumneavoastră făcând clic pe Eliminaţi linkul din partea de jos a fiecărui email."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Vă mulţumim că aţi folosit serviciul de alertă!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Aţi solicitat un email privind starea alertelor dvs."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "În curând, veţi primi un mesaj de confirmare cu linkuri pentru gestionarea alertelor dumneavoastră."
+
+msgid "Create alert"
+msgstr "Creaţi o alertă"
+
+msgid "alertservice_requested_info"
+msgstr "Aţi solicitat"
+
+msgid "alertservice_results_found"
+msgstr " au fost găsite ${number} rezultate."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Se afişează doar primele ${number} cele mai exacte rezultate."
+
+msgid "alertservice_view_all"
+msgstr "Faceţi clic aici pentru vizualizarea tuturor rezultatelor"
+
+msgid "no_alert_found"
+msgstr "Nu s-a găsit nicio alertă. Vă rugăm să creaţi o alertă nouă."
+
+msgid "url_not_valid"
+msgstr "Acest url nu este valabil, nu s-a găsit nicio alertă"
+
+msgid "alert_activated"
+msgstr "Alerta dumneavoastră a fost activată acum."
+
+msgid "alert_already_activated"
+msgstr "Alerta dumneavoastră a fost deja activitată."
+
+msgid "alert_removed"
+msgstr "Alerta dumneavoastră a fost eliminată."
+	
+msgid "click_to_confirm"
+msgstr "Faceţi clic pentru confirmarea alertei dumneavoastră "
+	
+msgid "notification_from"
+msgstr "Notificare de la"

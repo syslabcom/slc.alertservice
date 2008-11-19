@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: mt\n"
+"Language-Name: Maltese\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For:\n"
+
+msgid "heading_edit_alert"
+msgstr "Editja Twissija"
+
+msgid "heading_create_alert"
+msgstr "Oħloq Twissija"
+
+msgid "description_edit_alert"
+msgstr "Jekk jogħġbok speċifika l-mistoqsija tiegħek skont l-interessi tiegħek:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Posta ta’ notifika mibgħuta minn"
+
+msgid "label_remove_alert"
+msgstr "Neħħi din it-twissija"
+
+msgid "label_edit_alert"
+msgstr "Editja din it-twissija"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Għadek kif abbonajt fi twissija."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Dalwaqt ser tirċievi messaġġ ta’ konferma b’link sabiex tivverfika t-talba tiegħek jew tikkanċellaha."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Jekk ma tivverifikax it-twissija tiegħek, ma tirċivix aktar posta elettronika."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Normalment, in-notifikazzjonijiet jintbagħtu bil-lejl u fi tmiem il-ġimgħa, għalhekk huwa probabbli li m’intix se tara l-ewwel notifika tiegħek qabel għada."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Dejjem tista’ tikkanċella t-twissija tiegħek billi tikklikja fuq il-link Remove (Neħħi) fil-parti t’isfel ta’ kull email."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Grazzi talli użajt is-servizz ta’ twissija!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Tlabt email dwar l-istejtus tat-twissijiet tiegħek."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Dalwaqt tirċievi messaġġ ta’ konferma b’links biex tiġġestixxi t-twissijiet tiegħek."
+
+msgid "Create alert"
+msgstr "Oħloq twissija"
+
+msgid "alertservice_requested_info"
+msgstr "Inti tlabt"
+
+msgid "alertservice_results_found"
+msgstr "Instabu ${number} riżultati."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "L-ewwel ${number} riżultati l-aktar topiċi huma murija."
+
+msgid "alertservice_view_all"
+msgstr "Ikklikja hawn biex tara r-riżultati kollha"
+
+msgid "no_alert_found"
+msgstr "Ma nstabet ebda twissija. Jekk jogħġbok oħloq twissija ġdida."
+
+msgid "url_not_valid"
+msgstr "Din l-url mhijiex valida, ma nstabet ebda twissija"
+
+msgid "alert_activated"
+msgstr "It-twissija tiegħek ġiet attivata issa."
+
+msgid "alert_already_activated"
+msgstr "It-twissija tiegħek diġà kienet ġiet attivata."
+
+msgid "alert_removed"
+msgstr "It-twissija tiegħek tneħħiet."
+	
+msgid "click_to_confirm"
+msgstr "Ikklikja biex tikkonferma t-Twissija tiegħek"
+	
+msgid "notification_from"
+msgstr "Notifika mingħand"

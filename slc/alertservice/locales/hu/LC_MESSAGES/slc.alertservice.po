@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: hu\n"
+"Language-Name: Hungarian\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Értesítőszerkesztés"
+
+msgid "heading_create_alert"
+msgstr "Értesítő létrehozása"
+
+msgid "description_edit_alert"
+msgstr "Határozza meg az érdeklődési körének megfelelő lekérdezést:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Értesítő e-mail elküldve:"
+
+msgid "label_remove_alert"
+msgstr "Az értesítő eltávolítása"
+
+msgid "label_edit_alert"
+msgstr "Az értesítő szerkesztése"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Ön feliratkozott egy értesítőre."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Hamarosan megerősítési üzenetet fog kapni. Kérését az ebben található hivatkozáson keresztül igazolhatja vissza, illetve törölheti."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Ha az értesítőt nem igazolja vissza, további e-maileket nem kap."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Az értesítők kiküldésének ideje rendszerint éjszakára, illetve hétvégére esik, így első értesítője legkorábban várhatóan holnap fog megérkezni."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Az értesítő kézbesítését bármikor megszüntetheti a minden egyes e-mail végén megtalálható Eltávolítás hivatkozásra kattintva."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Köszönjük, hogy igénybe veszi az értesítőszolgáltatást!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Ön e-mailt kért értesítőinek állapotáról."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Hamarosan megerősítési üzenetet fog kapni. Értesítőit az ebben található hivatkozásokon keresztül kezelheti."
+
+msgid "Create alert"
+msgstr "Értesítés létrehozása"
+
+msgid "alertservice_requested_info"
+msgstr "Az Ön kérésének tárgya:"
+
+msgid "alertservice_results_found"
+msgstr "${number}találat felelt meg a feltételeknek."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "A megjelenítettek között csak az első ${number} legaktuálisabb eredmény szerepel."
+
+msgid "alertservice_view_all"
+msgstr "Az összes eredmény megtekintéséhez kattintson ide"
+
+msgid "no_alert_found"
+msgstr "Egyetlen értesítő sem található. Hozzon létre új értesítőt."
+
+msgid "url_not_valid"
+msgstr "Az URL érvénytelen, értesítő nem található"
+
+msgid "alert_activated"
+msgstr "Az értesítő most aktivált."
+
+msgid "alert_already_activated"
+msgstr "Az értesítő már aktivált."
+
+msgid "alert_removed"
+msgstr "Az értesítő eltávolítva."
+	
+msgid "click_to_confirm"
+msgstr "Az értesítő megerősítéséhez kattintson"
+	
+msgid "notification_from"
+msgstr "Értesítés a következőtől:"

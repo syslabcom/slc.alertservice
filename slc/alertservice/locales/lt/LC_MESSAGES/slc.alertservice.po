@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: lt\n"
+"Language-Name: Lithuanian\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Redaguoti perspėjimą"
+
+msgid "heading_create_alert"
+msgstr "Sukurti perspėjimą"
+
+msgid "description_edit_alert"
+msgstr "Prašome suformuoti užklausą pagal tai, kas Jus domina:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Pranešamojo laiško siuntėjas"
+
+msgid "label_remove_alert"
+msgstr "Pašalinti šį perspėjimą"
+
+msgid "label_edit_alert"
+msgstr "Redaguoti šį perspėjimą"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Jūs užsiregistravote gauti perspėjimus."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Netrukus gausite patvirtinimo pranešimą su nuoroda, skirta Jūsų prašymui patikrinti arba jam atšaukti."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Jei nepatvirtinsite savo perspėjimo, elektroninių laiškų nebegausite."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Pranešimai paprastai išsiunčiami naktį ir savaitgaliais, todėl pirmąjį pranešimą greičiausiai gausite tik rytoj."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Visuomet galite atsisakyti perspėjimų paspausdami Pašalinimo nuorodą, esančią kiekvieno elektroninio laiško apačioje."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Ačiū, kad naudojatės perspėjimo paslauga!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Jūs paprašėte elektroninio laiško apie savo perspėjimus."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Netrukus gausite patvirtinimo pranešimą su nuorodomis, skirtomis Jūsų perspėjimams tvarkyti."
+
+msgid "Create alert"
+msgstr "Sukurti perspėjimą"
+
+msgid "alertservice_requested_info"
+msgstr "Jūs paprašėte"
+
+msgid "alertservice_results_found"
+msgstr "Buvo rasta ${number} rezultatų."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Rodoma tik ${number} pirmųjų svarbiausių rezultatų."
+
+msgid "alertservice_view_all"
+msgstr "Paspauskite čia, kad pamatytumėte visus rezultatus"
+
+msgid "no_alert_found"
+msgstr "Perspėjimų nerasta. Prašome sukurti naują perspėjimą."
+
+msgid "url_not_valid"
+msgstr "Šis adresas (URL) neteisingas, perspėjimų nerasta"
+
+msgid "alert_activated"
+msgstr "Jūsų perspėjimas suaktyvintas."
+
+msgid "alert_already_activated"
+msgstr "Jūsų perspėjimas jau suaktyvintas anksčiau."
+
+msgid "alert_removed"
+msgstr "Jūsų perspėjimas panaikintas."
+	
+msgid "click_to_confirm"
+msgstr "Paspauskite, kad patvirtintumėte savo perspėjimą"
+	
+msgid "notification_from"
+msgstr "Pranešimas iš"

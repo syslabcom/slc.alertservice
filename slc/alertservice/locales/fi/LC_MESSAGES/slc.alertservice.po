@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: fi\n"
+"Language-Name: Finnish\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Muokkaa tilausta."
+
+msgid "heading_create_alert"
+msgstr "Tee palvelutilaus."
+
+msgid "description_edit_alert"
+msgstr "Täsmennä kysely kiinnostuksen kohteen mukaan:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Ilmoitusviestin lähettäjä"
+
+msgid "label_remove_alert"
+msgstr "Poista tämä tilaus."
+
+msgid "label_edit_alert"
+msgstr "Muokkaa tätä tilausta."
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Olet tilannut sähköpostipalvelun."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Saat pian vahvistusviestin, jossa on linkki tilauksen vahvistamista tai sen peruuttamista varten."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Jos tilausta ei vahvisteta, sinulle ei tule muita sähköpostiviestejä."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Ilmoitukset lähetetään yleensä iltaisin ja viikonloppuisin, joten luultavasti saat ensimmäisen viestin vasta huomenna."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Voit peruuttaa tilauksen milloin tahansa napsauttamalla jokaisen sähköpostiviestin lopussa olevaa Poista-linkkiä."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Kiitokset sähköpostipalvelun käyttämisestä!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Olet pyytänyt saada tilaustasi koskevan tilannetiedotteen."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Saat pian vahvistusviestin, jossa olevan linkin kautta voit muokata tilauksiasi."
+
+msgid "Create alert"
+msgstr "Tee palvelutilaus."
+
+msgid "alertservice_requested_info"
+msgstr "Olet pyytänyt seuraavia"
+
+msgid "alertservice_results_found"
+msgstr "${number} tulosta on löydetty."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Vain ensimmäiset ${number} merkittävintä tulosta näytetään."
+
+msgid "alertservice_view_all"
+msgstr "Napsauta tästä, jos haluat nähdä kaikki tulokset."
+
+msgid "no_alert_found"
+msgstr "Voimassa olevia tilauksia ei löytynyt. Tee uusi tilaus."
+
+msgid "url_not_valid"
+msgstr "Tämä url on virheellinen, tilausta ei löytynyt."
+
+msgid "alert_activated"
+msgstr "Tilauksesi on nyt voimassa."
+
+msgid "alert_already_activated"
+msgstr "Tilauksesi on jo voimassa."
+
+msgid "alert_removed"
+msgstr "Tilaus on poistettu."
+	
+msgid "click_to_confirm"
+msgstr "Vahvista tilaus napsauttamalla"
+	
+msgid "notification_from"
+msgstr "Ilmoituksen lähettäjä"

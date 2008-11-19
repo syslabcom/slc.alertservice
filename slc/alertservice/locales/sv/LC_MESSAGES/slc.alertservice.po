@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: sv\n"
+"Language-Name: Swedish\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: en-au en-bz en-ca en-ie en-jm en-nz en-ph en-za en-tt en-gb en-us en-zw\n"
+
+msgid "heading_edit_alert"
+msgstr "Redigera ett meddelande"
+
+msgid "heading_create_alert"
+msgstr "Skapa ett meddelande"
+
+msgid "description_edit_alert"
+msgstr "Ange dina intressen närmare:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Underrättelse via e-post skickad av"
+
+msgid "label_remove_alert"
+msgstr "Ta bort meddelandet"
+
+msgid "label_edit_alert"
+msgstr "Redigera meddelandet"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Du har prenumererat på ett meddelande."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Du får snart en bekräftelse via e-post med en länk för att bekräfta eller annullera din prenumeration."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Om du inte bekräftar meddelandet får du inga fler e-postmeddelanden."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Underrättelser skickas normalt ut under nätter och helger. Därför ser du troligen inte den första förrän i morgon."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Du kan alltid annullera meddelandet genom att klicka på länken ”Remove” (Ta bort) längst ned i varje e-postmeddelande."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Tack för att du använder meddelandetjänsten!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Du har begärt att få ett e-postmeddelande med status för dina meddelanden."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Du får snart ett bekräftelsemeddelande med länkar för att hantera dina meddelanden."
+
+msgid "Create alert"
+msgstr "Skapa ett meddelande"
+
+msgid "alertservice_requested_info"
+msgstr "Du har begärt"
+
+msgid "alertservice_results_found"
+msgstr "${number} resultat hittades."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Endast de första ${number} och mest relevanta resultaten visas."
+
+msgid "alertservice_view_all"
+msgstr "Klicka här för att visa alla resultat"
+
+msgid "no_alert_found"
+msgstr "Inget meddelande hittades. Skapa ett nytt meddelande."
+
+msgid "url_not_valid"
+msgstr "Denna url är ogiltig, inget meddelande hittades"
+
+msgid "alert_activated"
+msgstr "Ditt meddelande är nu aktiverat."
+
+msgid "alert_already_activated"
+msgstr "Ditt meddelande är redan aktiverat."
+
+msgid "alert_removed"
+msgstr "Ditt meddelande har tagits bort."
+	
+msgid "click_to_confirm"
+msgstr "Klicka för att bekräfta ditt meddelande"
+	
+msgid "notification_from"
+msgstr "Underrättelse från"

@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: da\n"
+"Language-Name: Danish\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Rediger meddelelsesabonnement"
+
+msgid "heading_create_alert"
+msgstr "Opret et meddelelsesabonnement"
+
+msgid "description_edit_alert"
+msgstr "Angiv nærmere ønsker vedrørende abonnementet:"
+
+msgid "alertservice_notification_sentby"
+msgstr "E-mail-besked sendt af"
+
+msgid "label_remove_alert"
+msgstr "Fjern dette meddelelsesabonnement"
+
+msgid "label_edit_alert"
+msgstr "Rediger dette meddelelsesabonnement"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Du har tegnet et meddelelsesabonnement."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Du vil om kort tid modtage en bekræftelse med et link, hvor du kan kontrollere eller annullere din anmodning."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Hvis du ikke kontrollerer dit meddelelsesabonnement, modtager du ikke flere e-mails."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Meddelelser udsendes normalt om natten og i weekenden, så du ser formodentlig ikke den første før i morgen."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Du kan altid opsige dit meddelelsesabonnement ved at klikke på ”Remove”-linket nederst i hver e-mail."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Tak fordi du benyttede meddelelsestjenesten!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Du har anmodet om en status-e-mail for dine meddelelser."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Du vil om kort tid modtage en bekræftelse med et link, hvor du kan administrere dine meddelelser."
+
+msgid "Create alert"
+msgstr "Opret meddelelsesabonnement"
+
+msgid "alertservice_requested_info"
+msgstr "Du har anmodet om"
+
+msgid "alertservice_results_found"
+msgstr "Der blev fundet ${number} resultater."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Kun de første ${number} mest relevante resultater er vist."
+
+msgid "alertservice_view_all"
+msgstr "Klik her for at se alle resultater"
+
+msgid "no_alert_found"
+msgstr "Der blev ikke fundet et meddelelsesabonnement. Opret et nyt."
+
+msgid "url_not_valid"
+msgstr "Denne URL er ikke gyldig. Der blev ikke fundet et meddelelsesabonnement"
+
+msgid "alert_activated"
+msgstr "Dit meddelelsesabonnement er nu aktiveret."
+
+msgid "alert_already_activated"
+msgstr "Dit meddelelsesabonnement er allerede aktiveret."
+
+msgid "alert_removed"
+msgstr "Dit meddelelsesabonnement er blevet fjernet."
+	
+msgid "click_to_confirm"
+msgstr "Klik for at bekræfte dit meddelelsesabonnement"
+	
+msgid "notification_from"
+msgstr "Besked fra"

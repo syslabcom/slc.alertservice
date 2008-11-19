@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: lv\n"
+"Language-Name: Latvian\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Rediģējiet brīdinājuma ziņojumu"
+
+msgid "heading_create_alert"
+msgstr "Izveidojiet brīdinājuma ziņojumu"
+
+msgid "description_edit_alert"
+msgstr "Lūdzu, norādiet vaicājumu saskaņā ar interesēm:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Paziņojuma vēstuli nosūtīja"
+
+msgid "label_remove_alert"
+msgstr "Atceliet šo brīdinājuma ziņojumu"
+
+msgid "label_edit_alert"
+msgstr "Rediģējiet šo brīdinājuma ziņojumu"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Jūs abonējāt brīdinājuma ziņojumu."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Lai pārbaudītu pieprasījumu vai atceltu to, drīz saņemsiet apstiprinājuma ziņojumu ar saiti."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Neapstiprinot brīdinājuma ziņojumu, turpmāk nesaņemsiet e-pasta vēstules."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Paziņojumi parasti tiek izsūtīti naktīs un nedēļas nogalēs, tāpēc, iespējams, saņemsiet pirmo paziņojumu tikai rītdien."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Varat vienmēr atcelt brīdinājuma ziņojumu, katras e-pasta vēstules apakšā noklikšķinot saiti „Remove” (atcelt)."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Paldies par brīdinājuma ziņojumu dienesta izmantošanu!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Jūs esat pieprasījis(-usi) statusa e-pasta vēstuli par brīdinājuma ziņojumiem."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Lai pārvaldītu brīdinājuma ziņojumus, drīz saņemsiet apstiprinājuma ziņojumu ar saitēm."
+
+msgid "Create alert"
+msgstr "Izveidojiet brīdinājuma ziņojumu"
+
+msgid "alertservice_requested_info"
+msgstr "Jūs esat pieprasījis(-usi)"
+
+msgid "alertservice_results_found"
+msgstr "${number} rezultāti ir atrasti."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Tiek parādīti tikai pirmie ${number} visaktuālākie rezultāti."
+
+msgid "alertservice_view_all"
+msgstr "Noklikšķiniet šeit, lai skatītu visus rezultātus"
+
+msgid "no_alert_found"
+msgstr "Brīdinājuma ziņojums netika atrasts. Lūdzu, izveidojiet jaunu brīdinājuma ziņojumu."
+
+msgid "url_not_valid"
+msgstr "Šis URL vietrādis nav derīgs, brīdinājuma ziņojums nav atrasts"
+
+msgid "alert_activated"
+msgstr "Jūsu brīdinājuma ziņojums tagad ir aktivizēts."
+
+msgid "alert_already_activated"
+msgstr "Jūsu brīdinājuma ziņojums jau ir aktivizēts."
+
+msgid "alert_removed"
+msgstr "Jūsu brīdinājuma ziņojums ir atcelts."
+	
+msgid "click_to_confirm"
+msgstr "Noklikšķiniet, lai apstiprinātu brīdinājuma ziņojumu."
+	
+msgid "notification_from"
+msgstr "Paziņojums no"

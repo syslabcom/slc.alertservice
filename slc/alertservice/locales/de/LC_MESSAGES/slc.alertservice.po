@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Alarmfunktion bearbeiten"
+
+msgid "heading_create_alert"
+msgstr "Alarmfunktion einrichten"
+
+msgid "description_edit_alert"
+msgstr "Bitte spezifizieren Sie Ihre Anfrage nach Ihren Interessensgebieten:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Benachrichtigungs-Mail von"
+
+msgid "label_remove_alert"
+msgstr "Diese Alarmfunktion entfernen"
+
+msgid "label_edit_alert"
+msgstr "Diese Alarmfunktion bearbeiten"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Sie haben eine Alarmfunktion für die Informationen Ihrer Wahl eingerichtet."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Demnächst erhalten Sie eine Bestätigungsnachricht mit einem Link, über den Sie Ihre Anfrage bestätigen oder löschen können."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Wenn Sie Ihre Alarmfunktion nicht bestätigen, erhalten Sie keine weiteren E-Mails."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Die Benachrichtigungen werden meist nachts und am Wochenende verschickt. Deshalb werden Sie die erste Benachrichtigung wahrscheinlich erst morgen erhalten."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Sie können Ihre Alarmfunktion jederzeit löschen, indem Sie auf „Entfernen“ am Ende der jeweiligen E-Mail klicken."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Danke, dass Sie das Alarmsystem nutzen!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Sie haben eine Status-E-Mail zu Ihren Alarmfunktionen angefordert."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Demnächst erhalten Sie eine Bestätigungsnachricht mit einem Link, über den Sie Ihre Alarmfunktionen verwalten können."
+
+msgid "Create alert"
+msgstr "Alarmfunktion einrichten"
+
+msgid "alertservice_requested_info"
+msgstr "Sie haben angefordert"
+
+msgid "alertservice_results_found"
+msgstr "${number} Ergebnisse gefunden."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Es werden nur die ${number} aktuellsten Ergebnisse angezeigt."
+
+msgid "alertservice_view_all"
+msgstr "Alle Ergebnisse anzeigen"
+
+msgid "no_alert_found"
+msgstr "Keine Alarmfunktion gefunden. Bitte richten Sie eine neue Alarmfunktion ein."
+
+msgid "url_not_valid"
+msgstr "URL ungültig, keine Alarmfunktion gefunden"
+
+msgid "alert_activated"
+msgstr "Ihre Alarmfunktion ist jetzt aktiviert."
+
+msgid "alert_already_activated"
+msgstr "Ihre Alarmfunktion ist bereits aktiviert."
+
+msgid "alert_removed"
+msgstr "Ihre Alarmfunktion wurde entfernt."
+	
+msgid "click_to_confirm"
+msgstr "Bitte klicken Sie hier, um Ihre Alarmfunktion zu bestätigen"
+	
+msgid "notification_from"
+msgstr "Benachrichtigung von"

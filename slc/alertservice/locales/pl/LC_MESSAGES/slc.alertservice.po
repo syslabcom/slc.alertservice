@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: pl\n"
+"Language-Name: Polish\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Edytuj powiadomienie"
+
+msgid "heading_create_alert"
+msgstr "Utwórz powiadomienie"
+
+msgid "description_edit_alert"
+msgstr "Proszę sprecyzować zapytanie w zależności od zainteresowań:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Powiadomienie wysłane przez"
+
+msgid "label_remove_alert"
+msgstr "Usuń to powiadomienie"
+
+msgid "label_edit_alert"
+msgstr "Edytuj to powiadomienie"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Właśnie dokonałeś(-aś) subskrypcji powiadomienia."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Wkrótce otrzymasz wiadomość potwierdzającą, która zawiera link umożliwiający zatwierdzenie lub odrzucenie twojego polecenia."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Jeżeli nie potwierdzisz swojego powiadomienia, nie otrzymasz dalszych widomości."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Powiadomienia są zazwyczaj wysyłane w nocy lub w weekendy, dlatego też pierwsze powiadomienie prawdopodobnie dotrze do Ciebie dopiero jutro."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Zawsze możesz anulować powiadomienie klikając na link “usuń” na końcu każdego emaila."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Dziękujemy za korzystanie z usługi powiadamiania."
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Poprosiłeś(-aś) o wiadomość dotyczącą statusu powiadomień."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Wkrótce otrzymasz wiadomość potwierdzającą, która zawiera linki umożliwiające zarządzanie powiadomieniami."
+
+msgid "Create alert"
+msgstr "Utwórz powiadomienie"
+
+msgid "alertservice_requested_info"
+msgstr "Poprosiłeś(-aś) o"
+
+msgid "alertservice_results_found"
+msgstr "Wyniki wyszukiwania - ${number}"
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Pokazano tylko pierwsze ${number} wyniki najbardziej opowiadające zapytaniu."
+
+msgid "alertservice_view_all"
+msgstr "Kliknij tutaj, aby zobaczyć wszystkie wyniki"
+
+msgid "no_alert_found"
+msgstr "Nie znaleziono żadnego powiadomienia. Prosimy o utworzenie nowego powiadomienia."
+
+msgid "url_not_valid"
+msgstr "Nieprawidłowy adres url, nie znaleziono powiadomienia."
+
+msgid "alert_activated"
+msgstr "Twoje powiadomienie zostało właśnie aktywowane."
+
+msgid "alert_already_activated"
+msgstr "Twoje powiadomienie zostało aktywowane wcześniej."
+
+msgid "alert_removed"
+msgstr "Twoje powiadomienie zostało usunięte."
+	
+msgid "click_to_confirm"
+msgstr "Kliknij, aby potwierdzić powiadomienie"
+	
+msgid "notification_from"
+msgstr "Powiadomienie od"

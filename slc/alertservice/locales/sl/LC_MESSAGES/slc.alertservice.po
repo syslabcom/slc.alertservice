@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: sl\n"
+"Language-Name: Slovenian\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Uredi opozorilo."
+
+msgid "heading_create_alert"
+msgstr "Pripravi novo opozorilo."
+
+msgid "description_edit_alert"
+msgstr "Prosimo, opredelite predmet svoje poizvedbe:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Obvestilo o prejemu poslano od"
+
+msgid "label_remove_alert"
+msgstr "Odstrani to opozorilo."
+
+msgid "label_edit_alert"
+msgstr "Uredi to opozorilo."
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Prijavili ste se za prejemanje opozorila."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Kmalu boste prejeli potrditveno sporočilo s povezavo, s katero svojo prijavo potrdite ali prekličete."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Če svojega opozorila ne boste potrdili , ne boste več prejemali e-sporočil."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Obvestila se običajno pošiljajo ponoči ali ob koncu tedna, zato prvega obvestila verjetno ne boste prejeli prej kot jutri."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Svoje opozorilo lahko prekličete s klikom na povezavo Odstrani na dnu vsakega e-sporočila."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Hvala, ker uporabljate opozorila!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Zahtevali ste e-sporočilo o stanju svojih opozoril."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Kmalu boste prejeli potrditveno sporočilo s povezavami za urejanje svojih opozoril."
+
+msgid "Create alert"
+msgstr "Pripravi opozorilo."
+
+msgid "alertservice_requested_info"
+msgstr "Zahtevali ste"
+
+msgid "alertservice_results_found"
+msgstr "Število zadetkov: ${number}"
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Prikazani so le najbolj ustrezni zadetki: ${number}."
+
+msgid "alertservice_view_all"
+msgstr "Kliknite tukaj za ogled vseh zadetkov."
+
+msgid "no_alert_found"
+msgstr "Ni opozoril. Prosimo, ustvarite novo opozorilo."
+
+msgid "url_not_valid"
+msgstr "Ta spletni naslov ne obstaja, ni opozoril."
+
+msgid "alert_activated"
+msgstr "Vaše opozorilo je zdaj aktivirano."
+
+msgid "alert_already_activated"
+msgstr "Vaše opozorilo je že aktivirano."
+
+msgid "alert_removed"
+msgstr "Vaše opozorilo je bilo odstranjeno."
+	
+msgid "click_to_confirm"
+msgstr "Kliknite za potrditev svojega opozorila."
+	
+msgid "notification_from"
+msgstr "Obvestilo poslano od:"

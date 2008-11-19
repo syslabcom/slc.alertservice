@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: el\n"
+"Language-Name: Greek\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Eπεξεργασία προειδοποίησης"
+
+msgid "heading_create_alert"
+msgstr "Δημιουργία προειδοποίησης"
+
+msgid "description_edit_alert"
+msgstr "Προσδιορίστε το ερώτημά σας ανάλογα με τα ενδιαφέροντά σας:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Το μήνυμα κοινοποίησης εστάλη από"
+
+msgid "label_remove_alert"
+msgstr "Διαγραφή αυτής της προειδοποίησης"
+
+msgid "label_edit_alert"
+msgstr "Επεξεργασία αυτής της προειδοποίησης"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Έχετε εγγραφεί σε προειδοποίηση."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Σύντομα θα λάβετε μήνυμα επιβεβαίωσης, που θα περιλαμβάνει έναν σύνδεσμο για την επαλήθευση ή ακύρωση του αιτήματός σας."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Εάν δεν επαληθεύσετε την προειδοποίησή σας, δεν θα λαμβάνετε περαιτέρω μηνύματα ηλεκτρονικού ταχυδρομείου."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Οι κοινοποιήσεις αποστέλλονται συνήθως κατά τη διάρκεια της νύχτας και τα σαββατοκύριακα. Συνεπώς, θα λάβετε την πρώτη κοινοποίησή σας αύριο."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Μπορείτε να ακυρώσετε την προειδοποίησή σας ανά πάσα στιγμή κάνοντας κλικ στον σύνδεσμο «Διαγραφή» που βρίσκεται στο κάτω μέρος κάθε ηλεκτρονικού μηνύματος."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Σας ευχαριστούμε που χρησιμοποιήσατε την υπηρεσία προειδοποίησης!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Ζητήσατε την λήψη ηλεκτρονικού μηνύματος σχετικά με την κατάσταση των προειδοποιήσεών σας."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Σύντομα θα λάβετε μήνυμα επιβεβαίωσης με συνδέσμους για τη διαχείριση των προειδοποιήσεών σας."
+
+msgid "Create alert"
+msgstr "Δημιουργία προειδοποίησης"
+
+msgid "alertservice_requested_info"
+msgstr "Ζητήσατε"
+
+msgid "alertservice_results_found"
+msgstr "Βρέθηκαν ${number} αποτελέσματα."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Προβάλλονται μόνο τα πρώτα ${number} πιο σχετικά αποτελέσματα."
+
+msgid "alertservice_view_all"
+msgstr "Κάντε κλικ εδώ για να δείτε όλα τα αποτελέσματα"
+
+msgid "no_alert_found"
+msgstr "Δεν βρέθηκε προειδοποίηση. Παρακαλούμε δημιουργήστε μια νέα προειδοποίηση."
+
+msgid "url_not_valid"
+msgstr "Η συγκεκριμένη διεύθυνση (url) δεν είναι έγκυρη, δεν βρέθηκε προειδοποίηση"
+
+msgid "alert_activated"
+msgstr "Η προειδοποίησή σας ενεργοποιήθηκε."
+
+msgid "alert_already_activated"
+msgstr "Η προειδοποίησή σας είναι ήδη ενεργοποιημένη."
+
+msgid "alert_removed"
+msgstr "Η προειδοποίησή σας διαγράφηκε."
+	
+msgid "click_to_confirm"
+msgstr "Κάντε κλικ για να επιβεβαιώσετε την προειδοποίησή σας"
+	
+msgid "notification_from"
+msgstr "Κοινοποίηση από"

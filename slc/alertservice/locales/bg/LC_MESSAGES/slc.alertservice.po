@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: bg\n"
+"Language-Name: Bulgarian\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Редактирайте известяване"
+
+msgid "heading_create_alert"
+msgstr "Създайте известяване"
+
+msgid "description_edit_alert"
+msgstr "Моля, уточнете Вашето искане според интересите си:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Уведомителното писмо е изпратено от"
+
+msgid "label_remove_alert"
+msgstr "Заличете това известяване"
+
+msgid "label_edit_alert"
+msgstr "Редактирайте това известяване"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Вие се абонирахте за известяване."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Скоро ще получите съобщение за потвърждение, съдържащо връзка за потвърждаване на вашето искане или за отмяната му."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Ако не потвърдите поисканото известяване, няма да получавате нови електронни писма."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Уведомленията обикновено се изпращат през нощта и в събота и неделя, така че вероятно ще получите първото си уведомление най-рано утре."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Можете по всяко време да отмените поисканото известяване, като изберете връзката „Заличаване“ в края на всяко електронно писмо."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Благодарим ви, че използвахте услугата за известяване!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Вие поискахте електронно писмо за статуса на вашите известявания."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Скоро ще получите съобщение за потвърждение, съдържащо връзки за управление на вашите известявания."
+
+msgid "Create alert"
+msgstr "Създайте известяване"
+
+msgid "alertservice_requested_info"
+msgstr "Вие поискахте "
+
+msgid "alertservice_results_found"
+msgstr "Намерени са ${number} резултата."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Показани са само първите ${number} най-актуални резултата."
+
+msgid "alertservice_view_all"
+msgstr "Щракнете тук, за да видите всички резултати"
+
+msgid "no_alert_found"
+msgstr "Не е намерено известяване. Моля, създайте ново известяване."
+
+msgid "url_not_valid"
+msgstr "Този URL е недействителен, не е намерено известяване"
+
+msgid "alert_activated"
+msgstr "Вашето известяване е активирано."
+
+msgid "alert_already_activated"
+msgstr "Вашето известяване е вече активирано."
+
+msgid "alert_removed"
+msgstr "Вашето известяване беше заличено."
+	
+msgid "click_to_confirm"
+msgstr "Щракнете за потвърждаване на вашето известяване"
+	
+msgid "notification_from"
+msgstr "Уведомление от"

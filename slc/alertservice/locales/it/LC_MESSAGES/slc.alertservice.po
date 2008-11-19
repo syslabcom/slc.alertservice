@@ -1,0 +1,96 @@
+# Gettext Message File for slc.alertservice
+# European Agency for Safety and Health at Work <webmaster@osha.europa.eu>, 2004-2008
+msgid ""
+msgstr ""
+"Project-Id-Version: osha 3.0\n"
+"POT-Creation-Date: 2004-12-17 07:49+0000\n"
+"PO-Revision-Date: 2005-02-01 12:00+0100\n"
+"Last-Translator: EU\n"
+"Language-Team: EU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: UTF-8\n"
+"Domain: slc.alertservice\n"
+"X-Is-Fallback-For: \n"
+
+msgid "heading_edit_alert"
+msgstr "Editare una richiesta del Servizio di segnalazione"
+
+msgid "heading_create_alert"
+msgstr "Richiedere il Servizio di segnalazione"
+
+msgid "description_edit_alert"
+msgstr "Precisi meglio la richiesta in base ai suoi interessi:"
+
+msgid "alertservice_notification_sentby"
+msgstr "Messaggio di notifica inviato da"
+
+msgid "label_remove_alert"
+msgstr "Cancellare questa richiesta del Servizio di segnalazione"
+
+msgid "label_edit_alert"
+msgstr "Editare questa richiesta del Servizio di segnalazione"
+
+msgid "description_subscribe_alert_next_steps"
+msgstr "Si è iscritto/a al Servizio di segnalazione."
+
+msgid "description_subscribe_alert_next_steps1"
+msgstr "Riceverà presto un messaggio di conferma con un link per confermare o cancellare la sua richiesta."
+
+msgid "description_subscribe_alert_next_steps2"
+msgstr "Se non conferma la richiesta del servizio non riceverà altre email."
+
+msgid "description_subscribe_alert_next_steps3"
+msgstr "Le notifiche vengono spedite solitamente di notte e nei fine settimana; è quindi probabile che riceva la prima notifica non prima di domani."
+
+msgid "description_subscribe_alert_next_steps4"
+msgstr "Può cancellarsi in qualsiasi momento dal Servizio di segnalazione cliccando sul link “Remove” che trova in calce a tutte le email."
+
+msgid "description_subscribe_alert_next_steps5"
+msgstr "Grazie per aver scelto il Servizio di segnalazione!"
+
+msgid "description_subscribe_alert_next_steps6"
+msgstr "Ha richiesto una email di status del Servizio di segnalazione."
+
+msgid "description_subscribe_alert_next_steps7"
+msgstr "Riceverà presto un messaggio di conferma con alcuni link per gestire il Servizio di segnalazione."
+
+msgid "Create alert"
+msgstr "Richiedere il Servizio di segnalazione"
+
+msgid "alertservice_requested_info"
+msgstr "Lei ha richiesto"
+
+msgid "alertservice_results_found"
+msgstr "Sono stati trovati ${number} risultati."
+
+msgid "alertservice_onlyfirst_shown"
+msgstr "Sono visualizzati soltanto i primi ${number} risultati più attuali."
+
+msgid "alertservice_view_all"
+msgstr "Cliccare qui per visualizzare tutti i risultati"
+
+msgid "no_alert_found"
+msgstr "Non è stata trovata nessuna segnalazione. Indicare una nuova richiesta."
+
+msgid "url_not_valid"
+msgstr "Questo url non è valido, non è stata trovata nessuna segnalazione."
+
+msgid "alert_activated"
+msgstr "Il Servizio di segnalazione è ora attivato."
+
+msgid "alert_already_activated"
+msgstr "Il Servizio di segnalazione è già stato attivato."
+
+msgid "alert_removed"
+msgstr "Il Servizio di segnalazione è stato cancellato."
+	
+msgid "click_to_confirm"
+msgstr "Cliccare qui per confermare la richiesta del Servizio di segnalazione"
+	
+msgid "notification_from"
+msgstr "Notifica da "
