@@ -278,8 +278,10 @@ class AlertserviceTool(PloneBaseTool, Folder):
         email = decodeEmail(profile_id)
         from_addr = self.portal_properties.site_properties.email_from_address
         to = '%s <%s>' % (email, email)
+        plt = getToolByName(self, 'portal_languages')
+        lang = plt.getPreferredLanguage()
         subject_msg = _(u'click_to_confirm', default=u"Click to confirm your Alert")
-        subject = translate(subject_msg)
+        subject = translate(subject_msg, target_language=lang)
         origin_host = self.REQUEST['SERVER_URL']
         np = self.getNotificationProfile(profile_id)
         url_params = dict(origin_host=origin_host, tool=self.id, profile_id=profile_id, key=np._getSecretKey())
