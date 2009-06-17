@@ -1,6 +1,11 @@
 slc.alertservice Changelog
 ==========================
 
+slc.alertservice 1.2 (2009-06-17)
+---------------------------------
+
+- changed svn:ignore (thomasw)
+
 slc.alertservice 1.1 (2009-05-12)
 ---------------------------------
 
