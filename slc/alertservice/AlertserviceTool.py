@@ -276,7 +276,8 @@ class AlertserviceTool(PloneBaseTool, Folder):
         """ sends a confirmation out to the user to agree to the change of his profile """
         
         email = decodeEmail(profile_id)
-        from_addr = self.portal_properties.site_properties.email_from_address
+        sp = self.portal_properties.site_properties
+        from_addr = getattr(sp, 'notification_email_from_address', getattr(sp, 'email_from_address'))
         to = '%s <%s>' % (email, email)
         plt = getToolByName(self, 'portal_languages')
         lang = plt.getPreferredLanguage()
@@ -433,9 +434,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
         portal = url_tool.getPortalObject()
         mh = getToolByName(self, 'MailHost')
         props_tool = getToolByName(self, 'portal_properties')
-        mfrom = props_tool.site_properties.getProperty('notification_email_from_address', '')
-        if mfrom == '':
-            mfrom = portal.getProperty('email_from_address', '')
+        mfrom = getattr(props_tool, 'notification_email_from_address', getattr(props_tool, 'email_from_address'))
         subj_msg = _(u'notification_from', default=u"Notification from")
         subject = "%s %s" %(translate(subj_msg), origin_host)
 
