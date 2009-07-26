@@ -1,8 +1,8 @@
 slc.alertservice Changelog
 ==========================
 
-slc.alertservice 1.3 (unreleased)
----------------------------------
+slc.alertservice 1.2.1 (2009-07-26)
+-----------------------------------
 
 - added notification_email_from_address as default from address (pilz)
 
