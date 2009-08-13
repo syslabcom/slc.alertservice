@@ -30,7 +30,7 @@ long_description = (
     + '\n' 
     )
     
-tests_require=['zope.testing']
+tests_require=['zope.testing', 'Products.PrintingMailHost']
 
 setup(name='slc.alertservice',
       version=version,
