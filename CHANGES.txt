@@ -1,8 +1,8 @@
 slc.alertservice Changelog
 ==========================
 
-slc.alertservice unreleased
----------------------------
+slc.alertservice 1.2.2 (2009-08-18)
+-----------------------------------
 
 - Basic tests added (gerken)
 
