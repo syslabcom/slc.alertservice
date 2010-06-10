@@ -62,6 +62,5 @@ setup(name='slc.alertservice',
       entry_points="""
       # -*- entry_points -*- 
       """,
-      paster_plugins = ["ZopeSkel"],
       )      
       
