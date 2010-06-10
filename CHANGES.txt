@@ -1,6 +1,12 @@
 slc.alertservice Changelog
 ==========================
 
+1.2.3 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 slc.alertservice 1.2.2 (2009-08-18)
 -----------------------------------
 
