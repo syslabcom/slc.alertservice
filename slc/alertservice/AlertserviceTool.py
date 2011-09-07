@@ -43,8 +43,6 @@ class AlertserviceTool(PloneBaseTool, Folder):
     meta_type = 'Alertservice Tool'
     plone_tool = 1
     toolicon = 'skins/alertservice/alertservice_icon.gif'
-    
-    __implements__ = (PloneBaseTool.__implements__,)
 
     security = AccessControl.ClassSecurityInfo()
     
