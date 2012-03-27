@@ -69,12 +69,10 @@ tal:define="dummy python:request.set('disable_border',1)" />
 
         <div class="formControls submitbuttons">
             <input class="context"
-                   tabindex=""
                    type="submit"
                    value="Create alert"
                    name="form.button.Save"
                    i18n:attributes="value"
-                   tal:attributes="tabindex tabindex/next;"
                    />
         </div>
 

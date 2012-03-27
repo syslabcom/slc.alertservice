@@ -72,9 +72,7 @@
 
                 <select id="schedule"
                         name="schedule:int"
-                        tabindex=""
-                        tal:attributes="value schedule;
-                                        tabindex tabindex/next;">
+                        tal:attributes="value schedule;">
 
                     <tal:types_loop tal:repeat="stype schedulesList">
                     <option value="SCHEDULETYPE"
@@ -107,8 +105,7 @@
             <select name="Language:list"
                     id="Language"
                     multiple="multiple"
-                    size="5"
-                    tal:attributes="tabindex tabindex/next;">
+                    size="5">
 
                     <metal:block tal:repeat="ln here/portal_languages/listSupportedLanguages">
                         <option tal:attributes="value python:ln[0];
@@ -141,7 +138,6 @@
                         id="email"
                         size="25"
                         tal:attributes="value name;
-                        tabindex tabindex/next;
                         " />
             </div>
         </div>
