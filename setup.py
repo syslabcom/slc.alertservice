@@ -60,7 +60,8 @@ setup(name='slc.alertservice',
       extras_require=dict(tests=tests_require),
       test_suite = 'slc.alertservice.tests.test_docs.test_suite',
       entry_points="""
-      # -*- entry_points -*- 
+        [z3c.autoinclude.plugin]
+        target = plone
       """,
       )      
       
