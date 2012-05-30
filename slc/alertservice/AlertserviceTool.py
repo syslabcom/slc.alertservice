@@ -292,7 +292,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
         except Exception,e:
             charset = "utf-8"
         try:
-            mh.secureSend( message=body, mto=email, mfrom=from_addr, subject=subject, subtype="plain", charset=charset)
+            mh.send(messageText=body, mto=email, mfrom=from_addr, subject=subject, msg_type="text/plain", charset=charset)
         except:
             return "Could not send the confirmation email!"
         return ''
