@@ -508,8 +508,8 @@ class AlertserviceTool(PloneBaseTool, Folder):
             
             body = self.alert_notification_template(**result_keywords)
             try:
-                mh.secureSend(message=body, mto=email, mfrom=mfrom, 
-                    subject=subject, subtype="html", charset=charset)
+                mh.send(messageText=body, mto=email, mfrom=mfrom, 
+                    subject=subject, msg_type="text/html", charset=charset)
             except Exception, why:
                 log( "Could not send the alert email!")
                 return mail_sent
