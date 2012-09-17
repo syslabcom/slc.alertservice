@@ -1,11 +1,10 @@
 slc.alertservice Changelog
 ==========================
 
-1.2.4 (unreleased)
+1.2.4 (2012-09-17)
 ------------------
 
-- Nothing changed yet.
-
+- Plone 4
 
 1.2.3 (2010-06-10)
 ------------------
