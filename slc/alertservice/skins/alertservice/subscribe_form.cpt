@@ -9,7 +9,6 @@ tal:define="dummy python:request.set('disable_border',1)" />
 <metal:block fill-slot="css_slot">
 <style type="text/css">
     #subscribe_box {
-    width: 50em;
     border: 1px solid #aaa;
     }
     #subscribe_heading {
