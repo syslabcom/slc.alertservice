@@ -84,10 +84,6 @@ h3 { border-bottom: 1px solid lightgrey;}
 <div tal:repeat="K python:ordered_results.keys()">
  <div>
 
-  <!--h3 tal:define="ti python:ttool.getTypeInfo(K);">
-      <img tal:attributes="src string:http://osha.europa.eu/${ti/getIcon}"/>
-      <span tal:replace="ti/Title"/>
-  </h3-->
   <h3><span tal:replace="K" /></h3>
 
   <div class="typeresults" tal:define="results python:ordered_results.get(K, [])">
