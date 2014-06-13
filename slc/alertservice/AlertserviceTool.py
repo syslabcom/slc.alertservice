@@ -1,15 +1,15 @@
 from Products.CMFPlone.PloneBaseTool import PloneBaseTool
 from OFS.Folder import Folder
-import AccessControl, os
+import AccessControl
 from DateTime import DateTime
-from Products.BTreeFolder2.BTreeFolder2 import manage_addBTreeFolder, BTreeFolder2, BTreeFolder2Base
-from Products.ZCatalog.ZCatalog import ZCatalog
+from Products.BTreeFolder2.BTreeFolder2 import BTreeFolder2
 from slc.alertservice.NotificationProfile import NotificationProfile
 from utils import encodeEmail, decodeEmail
 from Products.CMFCore.utils import getToolByName
 from Products.AdvancedQuery import Le, Ge, In, Eq, And, Or
 from slc.alertservice.config import triggerkey
 from slc.alertservice import AlertMessageFactory as _
+from time import sleep
 from zope.i18n import translate
 import zLOG
 import transaction
@@ -157,6 +157,8 @@ class AlertserviceTool(PloneBaseTool, Folder):
 #            query = query & In('object_provides', 'slc.publications.interfaces.IPublicationEnhanced')
 
 #        log('my final query:', query)
+
+
         searchmap['advanced_query'] = query
 
         smap = self.generateSearchMap( notification_period=schedule
@@ -516,6 +518,9 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
             mail_sent += 1
             current_count+=1
+
+            # sleep to not overload the mailer
+            sleep(1)
 
             # persist the changes to the notification
             #XXX
