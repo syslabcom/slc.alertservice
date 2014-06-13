@@ -45,7 +45,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
     toolicon = 'skins/alertservice/alertservice_icon.gif'
 
     security = AccessControl.ClassSecurityInfo()
-    
+
     def __init__(self, id='portal_alertservice'):
         " "
         self.id = id
@@ -83,7 +83,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
 
     def handleSubscription(self, request=None, doNotSendConfirmation=False):
-        """ do the necessary steps for creating a subscription 
+        """ do the necessary steps for creating a subscription
         doNotSendConfirmation: this param can be used for scripted adding of nprofiles"""
         if request is None:
             request = self.REQUEST
@@ -136,12 +136,12 @@ class AlertserviceTool(PloneBaseTool, Folder):
         if OType:
             if have_publications:
                 OType.remove('Publication')
-                query = query & Or( 
-                    In('portal_type', OType), 
+                query = query & Or(
+                    In('portal_type', OType),
                     And(
                         In('portal_type', 'File'), In('object_provides', 'slc.publications.interfaces.IPublicationEnhanced')
-                        ) 
-                ) 
+                        )
+                )
             else:
                 query = query & In('portal_type', OType)
             searchmap['portal_type'] = portal_type
@@ -158,7 +158,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
 #        log('my final query:', query)
         searchmap['advanced_query'] = query
-        
+
         smap = self.generateSearchMap( notification_period=schedule
                                                  , limit = limit
                                                  , searchmap = searchmap
@@ -168,19 +168,19 @@ class AlertserviceTool(PloneBaseTool, Folder):
             np = self.getNotificationProfile(b2a_email)
         else:
             np = self.createNotificationProfile(b2a_email)
-        
+
         # see if an alert exists by that id
         alert = np.getNotification(PERSONAL_ALERT_ID)
-        
+
         if alert:
             np.editNotification(id=PERSONAL_ALERT_ID, searchmap=smap)
         else:
             np.addNotification(id=PERSONAL_ALERT_ID, searchmap=smap)
-        
+
         if not doNotSendConfirmation:
             # If alert is added as inactive successfully, send an email out to the user to confirm
             error += self.sendConfirmationMessage(b2a_email)
-            
+
         return error
 
 
@@ -271,7 +271,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
     def sendConfirmationMessage(self, profile_id):
         """ sends a confirmation out to the user to agree to the change of his profile """
-        
+
         email = decodeEmail(profile_id)
         sp = self.portal_properties.site_properties
         from_addr = getattr(sp, 'notification_email_from_address', getattr(sp, 'email_from_address'))
@@ -372,7 +372,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
         count = 0
         loopcount = 0
         for profile_id in profile_ids:
-            count += self.generateNotification(profile_id=profile_id, now=now, 
+            count += self.generateNotification(profile_id=profile_id, now=now,
                 maxnumber=maxnumber, current_count=count, ids=ids)
             loopcount += 1
             if  loopcount % 25 == 0:
@@ -419,7 +419,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
             return 0
 #        log( "In generateNotification", profile_id)
 
-        
+
         log( "generateNotification. maxnumber: %d, current_count: %d, profile_id: %s" %(maxnumber, current_count, profile_id))
         email = decodeEmail(profile_id)
         notification_profile = self.getNotificationProfile(profile_id)
@@ -463,7 +463,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
             # Notify only if 'period' has passed since last notification run
             # or notification is forced via 'run'
-            perioddelta = float(period)-0.1 
+            perioddelta = float(period)-0.1
             # it doesnt matter if period is slightly less because we run the script only once a day anyway.
             if (currentDateTime < lastrun+perioddelta) and now==0:
                 log( "continuing because of lastrun period", currentDateTime, lastrun+perioddelta)
@@ -505,15 +505,15 @@ class AlertserviceTool(PloneBaseTool, Folder):
             result_keywords['edit_url'] = "%(origin_host)s/subscribe_form?s=%(profile_id)s&k=%(key)s" % url_params
             result_keywords['remove_url'] = "%(origin_host)s/%(tool)s/remove_alert?s=%(profile_id)s&k=%(key)s" % url_params
             result_keywords['more_url'] = "%(origin_host)s/show_all_alert_results?s=%(profile_id)s&k=%(key)s" % url_params
-            
+
             body = self.alert_notification_template(**result_keywords)
             try:
-                mh.send(messageText=body, mto=email, mfrom=mfrom, 
+                mh.send(messageText=body, mto=email, mfrom=mfrom,
                     subject=subject, msg_type="text/html", charset=charset)
             except Exception, why:
                 log( "Could not send the alert email!")
                 return mail_sent
-                
+
             mail_sent += 1
             current_count+=1
 
@@ -523,7 +523,7 @@ class AlertserviceTool(PloneBaseTool, Folder):
 
             if maxnumber>0 and current_count>=maxnumber:
                 break
-        
+
         return mail_sent
 
 
