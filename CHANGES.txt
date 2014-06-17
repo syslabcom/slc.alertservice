@@ -4,7 +4,8 @@ slc.alertservice Changelog
 1.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Sleep 1s between sending emails, to aboid flooding the mail
+  server [pysailor]
 
 
 1.2.5 (2012-12-18)
